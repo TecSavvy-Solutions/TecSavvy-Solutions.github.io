@@ -67,10 +67,20 @@
             border-radius: 4px;
         }
 
+        .tab-btn {
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+            text-align: left;
+            background: white;
+            color: #94a3b8;
+        }
+        .tab-btn:hover {
+            border-color: #0f172a;
+        }
         .tab-btn.active {
             background: #0f172a;
             color: white;
-            border-radius: 2px;
+            border-color: #0f172a;
         }
 
         .interactive-card {
@@ -79,11 +89,7 @@
             background: white;
             transition: all 0.2s ease;
         }
-        .interactive-card:hover {
-            border-color: #0f172a;
-            box-shadow: 6px 6px 0px #0f172a;
-        }
-
+        
         .grid-bg {
             background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
             background-size: 24px 24px;
@@ -116,7 +122,7 @@
                 </div>
                 <div class="flex items-center space-x-6 mono text-[10px] font-bold">
                     <a href="#intro" class="hover:text-sky-600 transition-colors">/IDENTITY</a>
-                    <a href="#problem" class="hover:text-sky-600 transition-colors">/PROBLEM</a>
+                    <a href="#problem" class="hover:text-sky-600 transition-colors">/PHILOSOPHY</a>
                     <a href="#poc" class="hover:text-sky-600 transition-colors">/POC_DEMO</a>
                     <a href="#logs" class="hover:text-sky-600 transition-colors">/EXPERIENCE</a>
                 </div>
@@ -124,14 +130,13 @@
         </div>
     </nav>
 
-    <!-- 01: Identity Header -->
+    <!-- 01: Identity Header (Status entfernt gem. Bild 3) -->
     <header id="intro" class="pt-24 pb-16 bg-white border-b border-slate-200 relative overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="section-number">01</div>
             <div class="flex flex-col items-start">
                 <div class="flex items-center gap-3 mb-8">
                     <span class="tech-badge">Ing. Richard Schöll</span>
-                    <span class="status-badge-poc">STATUS: PoC READY FOR PILOT</span>
                 </div>
                 
                 <h1 class="text-6xl sm:text-8xl font-black tracking-tighter uppercase leading-[0.85] mb-12">
@@ -144,7 +149,7 @@
                             Fokus: Operative Effizienz & <span class="text-sky-600">TecSavvy Solutions</span>
                         </p>
                         <p class="text-lg text-slate-500 max-w-xl leading-relaxed">
-                            Ich warte keine Computer. Ich warte Flugzeuge. Aber ich entwickle Software-Werkzeuge, um Wartungsprozesse <span class="font-bold text-slate-900">skalierbar und fehlerfrei</span> zu machen. Aus der Praxis, für die Praxis.
+                            Ich warte keine Computer. Ich warte Flugzeuge. Aber ich entwickle Software-Werkzeuge, um Wartungsprozesse <strong>skalierbar und fehlerfrei</strong> zu machen. Aus der Praxis, für die Praxis.
                         </p>
                     </div>
                     <div class="bg-slate-900 p-8 mono text-xs space-y-3 text-slate-300 shadow-2xl rounded-sm">
@@ -159,115 +164,121 @@
         </div>
     </header>
 
-    <!-- 02: Problem & Solution (The Real Gap) -->
-    <section id="problem" class="py-24 relative bg-slate-50">
+    <!-- 02: Philosophie (Style gem. Bild 1) -->
+    <section id="problem" class="py-24 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="section-number">02</div>
-            <div class="mb-16">
-                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">// ANALYSIS: THE_MRO_GAP</h2>
-                <h3 class="text-4xl font-black uppercase tracking-tight max-w-4xl">Warum Standard-Planung im Hangar scheitert.</h3>
-                <p class="mt-6 text-xl text-slate-600 leading-relaxed max-w-3xl">
-                    In der Luftfahrt ist Zeit keine Konstante. Wenn sich Flugpläne durch Delays verschieben, versagen statische Lösungen.
-                </p>
+            <div class="mb-10">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-2">// PHILOSOPHIE_LOG</h2>
+                <p class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-6">Kein Blabla. Nur Lösungen.</p>
+                <p class="text-lg text-slate-500 max-w-2xl leading-relaxed">Digitalisierung in der Luftfahrt muss die rauen Bedingungen des 24/7 Betriebs aushalten. Mein Ansatz ist radikal anwenderzentriert: Software muss Zeit sparen, nicht erzeugen.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Pain Points -->
-                <div class="space-y-4">
-                    <div class="interactive-card p-6 border-l-4 border-red-500">
-                        <h4 class="font-black text-sm uppercase mb-2 text-red-600">Problem: Statische Logik</h4>
-                        <p class="text-sm text-slate-600">Standard-IT "klebt" Notizen an feste Uhrzeiten. Verspätet sich der Flieger, passt der Plan nicht mehr zur Realität. Folge: <span class="font-bold">Informationsverlust</span>.</p>
-                    </div>
-                    <div class="interactive-card p-6 border-l-4 border-slate-400">
-                        <h4 class="font-black text-sm uppercase mb-2">Problem: Medienbruch</h4>
-                        <p class="text-sm text-slate-600">Excel-Listen auf USB-Sticks oder Papier-Backups verhindern, dass der Mechaniker am iPad dasselbe sieht wie der Schichtleiter im Büro.</p>
-                    </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl font-bold text-sky-500 mono mb-6">01</div>
+                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider">Troubleshooting</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Systematische Fehleranalyse als Mindset – am Flieger wie im Code. Probleme bis zur Wurzel verfolgen.</p>
                 </div>
-                <!-- TecSavvy Solution -->
-                <div class="bg-slate-900 text-white p-8 shadow-xl">
-                    <h4 class="mono text-[10px] font-bold text-sky-400 mb-6 uppercase tracking-widest">TecSavvy Strategy: Simple & Useful</h4>
-                    <ul class="space-y-8">
-                        <li class="flex gap-4">
-                            <span class="text-3xl font-black text-sky-500 mono leading-none">01</span>
-                            <div>
-                                <h5 class="font-bold text-base uppercase mb-1 italic">Event-Based Mapping</h5>
-                                <p class="text-xs text-slate-400 leading-relaxed">Meine Logik bindet Daten an das Flugereignis. Die Info wandert bei Delays <span class="text-white font-bold">automatisch</span> auf der Zeitachse mit.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-4">
-                            <span class="text-3xl font-black text-sky-500 mono leading-none">02</span>
-                            <div>
-                                <h5 class="font-bold text-base uppercase mb-1 italic">Responsive execution</h5>
-                                <p class="text-xs text-slate-400 leading-relaxed">Web-Technologie statt lokaler Software. Läuft ohne Installation auf jedem iPad, iPhone und Desktop im Netz.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl font-bold text-sky-500 mono mb-6">02</div>
+                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider">Simplicity</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Reduktion komplexer Datenströme auf das Wesentliche. WYSIWYG für maximale intuitive Erfassung.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl font-bold text-sky-500 mono mb-6">03</div>
+                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider">Usefulness</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Software, die im Hangar bei Stress echte Zeit spart, statt durch Komplexität zu bremsen.</p>
+                </div>
+                <!-- Card 4 (Dark Accent) -->
+                <div class="bg-slate-900 p-8 border-none shadow-xl">
+                    <div class="text-3xl font-bold text-sky-400 mono mb-6">04</div>
+                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider text-white">AI-Orchestration</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Nutzung von KI zur radikalen Beschleunigung von Entwicklungszyklen und Logik-Validierung.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 03: The PoC Execution (Optimized Diagram) -->
+    <!-- 03: PoC Showcase (Layout gem. Bild 2) -->
     <section id="poc" class="py-24 bg-white border-y border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="section-number">03</div>
-            <div class="mb-12">
-                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">// EXECUTION: PoC_V2.1.8</h2>
-                <h3 class="text-4xl font-black uppercase tracking-tight">Ground Plan Visualizer</h3>
-                <div class="mt-4 flex gap-4 items-center">
-                    <p class="text-slate-500">Ein voll funktionaler Software-Prototyp zur Digitalisierung des Standzeiten-Managements.</p>
-                    <span class="status-badge-poc text-[10px]">NOT ACTIVE - READY TO DEPLOY</span>
+            <div class="mb-12 border-b-2 border-slate-900 pb-8 flex justify-between items-end">
+                <div>
+                    <span class="mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">Highlight_Innovation</span>
+                    <h2 class="text-4xl font-black uppercase tracking-tighter italic leading-none mt-2">Ground Plan Visualizer</h2>
+                </div>
+                <div class="text-right mono text-[10px] font-bold text-slate-500 hidden sm:block leading-tight">
+                    VERSION_STABLE: 2.1.8<br>
+                    READY_FOR_INTEGRATION
                 </div>
             </div>
 
-            <!-- Interaktive Demo-Simulation -->
-            <div class="bg-slate-900 p-1 mb-16 shadow-2xl">
-                <div class="bg-white p-8 border border-slate-800 relative">
-                    <div class="absolute top-0 right-0 p-3 mono text-[9px] text-slate-300 font-bold uppercase tracking-tighter">Engine_Simulation: Delay_Handling</div>
-                    <h4 class="mono font-bold text-xs mb-8 text-sky-600">> ENGINE: FUZZY_LOGIC_ID_V2</h4>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Links: Das Problem & Interaktive Buttons -->
+                <div class="lg:col-span-1 space-y-8">
+                    <div>
+                        <h3 class="font-black uppercase text-sm mb-4 tracking-tight">Das Problem starrer Listen</h3>
+                        <ul class="text-[11px] text-slate-500 space-y-3 list-disc pl-4">
+                            <li><strong>Keine Flexibilität:</strong> Statische Listen visualisieren keine echten Bodenzeiten (Inverted Gantt).</li>
+                            <li><strong>Datenverlust bei Delays:</strong> Manuelle Notizen verschieben sich nicht automatisch mit dem Flugplan mit.</li>
+                            <li><strong>Mangelnde Übersicht:</strong> Eine intuitive Ansicht für die gesamte Flotte und LH-Group Airlines fehlt auf einen Blick.</li>
+                            <li><strong>Teure Eigenentwicklungen:</strong> Vermeidung von hohen Kosten durch extern beauftragte App-Entwicklungen.</li>
+                        </ul>
+                    </div>
                     
-                    <div class="w-full space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-20 mono text-xs font-bold text-slate-400 italic uppercase">Aircraft:</div>
-                            <div class="flex-1 bg-slate-100 h-14 relative border border-slate-200 overflow-hidden">
-                                <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[11px] font-black transition-all duration-1000 uppercase" id="anim-bar">
-                                    OE-TEX: A-CHECK / READY FOR PILOT
+                    <div class="flex flex-col gap-2">
+                        <button class="tab-btn active px-4 py-3 mono text-[10px] font-bold uppercase tracking-tighter" onclick="showInfo('Fuzzy Logic', 'Vermeidet den Verlust von Wartungsnotizen bei Flugverschiebungen durch dynamisches Mapping.', this)">
+                            > LOGIC: FUZZY_ID
+                        </button>
+                        <button class="tab-btn px-4 py-3 mono text-[10px] font-bold uppercase tracking-tighter" onclick="showInfo('Hybrid Storage', 'Kritische Flugdaten am Server, persönliche Sticky Notes lokal am Gerät (LocalStorage).', this)">
+                            > ARCH: HYBRID_STORE
+                        </button>
+                        <button class="tab-btn px-4 py-3 mono text-[10px] font-bold uppercase tracking-tighter" onclick="showInfo('WYSIWYG Print', '1:1 Skalierung für A4 Landscape Handover Protokolle ohne Spaltenumbruch.', this)">
+                            > UX: PRECISION_PRINT
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rechts: Simulation & Skill Matrix -->
+                <div class="lg:col-span-2 space-y-12">
+                    <!-- Engine Simulation Box -->
+                    <div class="bg-white border-2 border-slate-900 p-8 relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 p-2 mono text-[8px] text-slate-300 font-bold tracking-widest uppercase">Gantt_Simulation_v2</div>
+                        <h4 class="mono font-bold text-xs mb-8 text-sky-600">> ENGINE: DELAY_RESISTANCE_DEMO</h4>
+                        
+                        <div class="w-full space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 mono text-[10px] font-bold">OE-TEX</div>
+                                <div class="flex-1 bg-slate-100 h-10 relative border border-slate-200 overflow-hidden">
+                                    <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[9px] font-bold transition-all duration-700 shadow-xl uppercase" id="anim-bar">
+                                        A-CHECK / HANGAR 1
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex flex-col sm:flex-row justify-between items-center pt-6 border-t border-slate-100 gap-4">
-                            <p class="text-[11px] text-slate-500 uppercase font-bold italic">Beweis: Die Info klebt am Flieger (OE-TEX), nicht an der Uhrzeit.</p>
-                            <button onclick="simulateDelay()" class="w-full sm:w-auto px-10 py-3 bg-sky-600 text-white text-[11px] font-black mono uppercase hover:bg-sky-700 transition-all shadow-lg active:scale-95">
-                                Simulate Delay +2h
-                            </button>
+                            <div class="flex justify-between items-center mt-8 border-t border-slate-100 pt-4">
+                                <p class="text-[9px] text-slate-400 italic">Die Info klebt an der ID (OE-TEX_FLIGHT_DATE) – unabhängig von Delays.</p>
+                                <button onclick="simulateDelay()" class="px-6 py-2 bg-sky-600 text-white text-[10px] font-black mono uppercase hover:bg-sky-700 transition-colors shadow-lg active:scale-95">
+                                    Simulate Delay +2h
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Skill Matrix / Radar Chart (Optimized Readability) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm">
-                    <h4 class="mono text-[10px] font-bold text-slate-400 mb-8 uppercase text-center tracking-widest">Analytics: Cross-Domain Capability</h4>
-                    <div class="chart-container">
-                        <canvas id="skillsRadarChart"></canvas>
+                    <!-- Info Box für Buttons -->
+                    <div id="info-box" class="p-6 bg-slate-900 text-sky-400 mono text-xs font-bold border-l-4 border-sky-500 animate-[fadeIn_0.3s] min-h-[80px]">
+                        SYSTEM_READY: Select module for engineering details...
                     </div>
-                </div>
-                <div class="space-y-8">
-                    <div class="border-l-4 border-sky-500 pl-6">
-                        <h4 class="text-2xl font-black uppercase tracking-tight mb-4 italic text-slate-800">The Hybrid Advantage</h4>
-                        <p class="text-slate-600 leading-relaxed">
-                            Das obige Diagramm zeigt die Verschmelzung von <span class="font-bold text-slate-900 uppercase">Aviation-Autorität</span> und <span class="font-bold text-slate-900 uppercase">Software-Architektur</span>. Ich bin kein klassischer Programmierer – ich bin ein Anwender, der seine Probleme selbst löst.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mono text-[11px]">
-                        <div class="p-4 bg-white border border-slate-200">
-                            <span class="text-sky-500 font-bold block mb-1">> SCALABILITY</span>
-                            Die Architektur ist hub-agnostisch konzipiert (VIE, FRA, MUC).
-                        </div>
-                        <div class="p-4 bg-white border border-slate-200">
-                            <span class="text-sky-500 font-bold block mb-1">> EXECUTION</span>
-                            KI-gestütztes Development spart Monate an Konzeptionszeit.
+
+                    <!-- Skill Matrix / Radar Chart -->
+                    <div class="p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm">
+                        <h4 class="mono text-[10px] font-bold text-slate-400 mb-8 uppercase text-center tracking-widest">Cross-Domain Capability Spectrum</h4>
+                        <div class="chart-container">
+                            <canvas id="skillsRadarChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -275,7 +286,7 @@
         </div>
     </section>
 
-    <!-- 04: Foundation / Logs (Resume) -->
+    <!-- 04: Experience Timeline -->
     <section id="logs" class="py-24 bg-slate-900 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="section-number text-slate-800">04</div>
@@ -288,7 +299,7 @@
                 <div class="relative">
                     <span class="absolute -left-[51px] top-1 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-900 shadow-md"></span>
                     <h3 class="text-2xl font-black uppercase leading-tight text-white mb-2">Digital Transformation Lead & Expert</h3>
-                    <p class="text-xs font-bold text-sky-400 uppercase tracking-[0.2em] mb-4 italic">Austrian Airlines | Fokus: MRO Innovation</p>
+                    <p class="text-xs font-bold text-sky-400 uppercase tracking-[0.2em] mb-4 italic text-sky-400">Austrian Airlines | Fokus: MRO Innovation</p>
                     <p class="text-base text-slate-400 leading-relaxed">Bau der Brücke zwischen operativer Front und IT. Entwicklung von PoCs (wie dem Visualizer), die heute den Schmerz der Ineffizienz lindern.</p>
                 </div>
 
@@ -312,7 +323,7 @@
     <!-- Footer -->
     <footer class="bg-black py-16 border-t border-slate-800 text-center">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-2xl font-black text-white uppercase tracking-widest italic mb-8">User Driven Engineering.</h2>
+            <h2 class="text-2xl font-black text-white uppercase tracking-widest italic mb-8 leading-none">The Practitioner's Edge.</h2>
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 opacity-40 mb-10">
                 <span class="mono text-[9px] text-white uppercase tracking-widest">ING. RICHARD SCHÖLL</span>
                 <span class="w-1 h-1 bg-white rounded-full hidden md:block"></span>
@@ -331,6 +342,18 @@
             bar.style.left = '45%';
             bar.innerText = 'STATUS: DELAYED +2H | LOGIC_ACTIVE';
             bar.classList.add('bg-red-600');
+        }
+
+        function showInfo(title, text, btn) {
+            const box = document.getElementById('info-box');
+            box.innerHTML = `> MODULE: ${title.toUpperCase()}<br>> STATUS: ACTIVE<br>> LOG: ${text}`;
+            
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.classList.add('text-slate-400');
+            });
+            btn.classList.add('active');
+            btn.classList.remove('text-slate-400');
         }
 
         // --- Optimized Radar Chart for Readability ---
@@ -367,10 +390,9 @@
                         angleLines: { color: 'rgba(148, 163, 184, 0.4)', lineWidth: 1 },
                         grid: { color: 'rgba(148, 163, 184, 0.2)', lineWidth: 1 },
                         pointLabels: {
-                            // DEUTLICH GRÖSSERE SCHRIFT FÜR BESSERE LESBARKEIT
                             font: { 
                                 family: "'JetBrains Mono', monospace", 
-                                size: 12, 
+                                size: 14, 
                                 weight: '800' 
                             },
                             color: '#1e293b',
@@ -393,21 +415,6 @@
                 }
             }
         });
-
-        // Tab Handler (nur falls benötigt)
-        function showInfo(title, text) {
-            const box = document.getElementById('info-box');
-            if(box) {
-                box.innerHTML = `> MODULE: ${title.toUpperCase()}<br>> STATUS: ACTIVE<br>> LOG: ${text}`;
-            }
-            
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('text-slate-400');
-            });
-            event.currentTarget.classList.add('active');
-            event.currentTarget.classList.remove('text-slate-400');
-        }
     </script>
 </body>
 </html>
