@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Ing. Richard Schöll | B1/B2 Systems Engineer & Digital MRO Innovator</title>
-    <meta name="title" content="Ing. Richard Schöll | TecSavvy MRO Innovation">
-    <meta name="description" content="20 Jahre Aviation Expertise trifft auf KI-Innovation. Entdecke den MRO Ground Plan Visualizer und intelligente Lösungen für die Flugzeugwartung.">
+    <title>Richard Schöll | Aircraft Systems Engineer & Digital Architect</title>
+    <meta name="title" content="Richard Schöll | TecSavvy MRO Innovation">
+    <meta name="description" content="Wo operative Expertise auf digitale Umsetzungskraft trifft. 20 Jahre MRO-Erfahrung kombiniert mit AI-Assisted Development.">
     
-    <!-- Favicon (Angepasst auf favicon.png mit Cache-Bust) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png?v=3">
     <link rel="shortcut icon" type="image/png" href="favicon.png?v=3">
 
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tecsavvy-rs.github.io/">
     <meta property="og:title" content="Richard Schöll | Digital Transformation Lead">
-    <meta property="og:description" content="Start where others stop. Operative Fachexpertise kombiniert mit AI-Assisted Development.">
+    <meta property="og:description" content="Start where others stop. Die Brücke zwischen Hangar und Hightech.">
     <meta property="og:image" content="https://tecsavvy-rs.github.io/preview.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -86,6 +86,17 @@
             background-size: 24px 24px;
         }
 
+        .section-number {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            line-height: 1;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            z-index: -1;
+        }
+
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #94a3b8; }
@@ -98,182 +109,207 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-14 items-center">
                 <div class="flex items-center gap-4">
-                    <span class="tech-badge">SYS_TECSAVVY_V218</span>
+                    <span class="tech-badge">TECSAVVY_MANIFESTO_V2</span>
                 </div>
                 <div class="flex items-center space-x-6 mono text-[10px] font-bold">
-                    <a href="#profil" class="hover:text-sky-500 transition-colors">/PROFIL</a>
-                    <a href="#kompetenzen" class="hover:text-sky-500 transition-colors">/CAPABILITIES</a>
-                    <a href="#projekte" class="hover:text-sky-500 transition-colors">/PROJECTS</a>
-                    <a href="#erfahrung" class="hover:text-sky-500 transition-colors">/LOGS</a>
+                    <a href="#intro" class="hover:text-sky-500 transition-colors">/IDENTITY</a>
+                    <a href="#thesis" class="hover:text-sky-500 transition-colors">/WHY</a>
+                    <a href="#proof" class="hover:text-sky-500 transition-colors">/EXECUTION</a>
+                    <a href="#logs" class="hover:text-sky-500 transition-colors">/LOGS</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="profil" class="pt-16 pb-12 bg-white border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 01: Identity Header -->
+    <header id="intro" class="pt-20 pb-16 bg-white border-b border-slate-200 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="section-number text-slate-100">01</div>
             <div class="flex flex-col items-start">
                 <div class="flex gap-2 mb-6">
-                    <span class="tech-badge">STATUS: B1.1/B2 CERTIFIED</span>
-                    <span class="motto-tag">SIMPLE & USEFUL</span>
+                    <span class="tech-badge">ROLE: AIRCRAFT SYSTEMS ENGINEER</span>
+                    <span class="motto-tag">DOMAIN EXPERT WHO CODES</span>
                 </div>
                 
                 <h1 class="text-5xl sm:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-[0.9] mb-10">
-                    Start where <br>others <span class="text-slate-400">stop.</span>
+                    Richard <br>Schöll.
                 </h1>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full">
                     <div class="md:col-span-2 border-l-4 border-slate-900 pl-6 flex flex-col justify-center">
-                        <p class="text-xl text-slate-600 leading-relaxed italic">
-                            "Innovation in der Wartung entsteht nicht im Konferenzraum, sondern dort, wo operative Expertise auf digitale Umsetzungskraft trifft."
+                        <p class="text-2xl text-slate-700 font-light leading-tight">
+                            Ich warte keine Computer. Ich warte Flugzeuge. Aber ich benutze Computer, um Wartung **überhaupt erst skalierbar** zu machen.
                         </p>
-                        <p class="mt-6 text-sm text-slate-500 uppercase font-bold mono">
-                            > TecSavvy Solutions | Aviation Tech Ops
+                        <p class="mt-6 text-slate-500 max-w-xl">
+                            20 Jahre Austrian Airlines (B1.1/B2) haben mir gezeigt: Echte Innovation entsteht nicht in der IT-Abteilung, sondern dort, wo der Schmerz der Ineffizienz am größten ist – im Hangar.
                         </p>
                     </div>
-                    <div class="bg-slate-900 p-6 mono text-[11px] space-y-2 text-slate-300">
-                        <div class="flex justify-between border-b border-slate-700 pb-1 text-slate-500"><span>REGISTRY</span><span>VALUE</span></div>
-                        <div class="flex justify-between"><span class="text-sky-400">EXP</span><span class="font-bold text-white">20+ YRS</span></div>
-                        <div class="flex justify-between"><span class="text-sky-400">LICENSE</span><span class="font-bold text-white">B1.1 / B2</span></div>
-                        <div class="flex justify-between"><span class="text-sky-400">ROLES</span><span class="font-bold text-white">FTE / FSE</span></div>
-                        <div class="flex justify-between"><span class="text-sky-400">STACK</span><span class="font-bold text-white">AI/REACT/PY</span></div>
+                    <div class="bg-slate-900 p-6 mono text-[11px] space-y-2 text-slate-300 shadow-2xl">
+                        <div class="flex justify-between border-b border-slate-700 pb-1 text-slate-500"><span>REGISTRY</span><span>AUTH_DATA</span></div>
+                        <div class="flex justify-between"><span class="text-sky-400">LICENSE</span><span class="font-bold text-white">CAT B1 / B2</span></div>
+                        <div class="flex justify-between"><span class="text-sky-400">EXPERTISE</span><span class="font-bold text-white">FTE / FSE</span></div>
+                        <div class="flex justify-between"><span class="text-sky-400">MISSION</span><span class="font-bold text-white">MRO DIGITAL LEAD</span></div>
+                        <div class="flex justify-between"><span class="text-sky-400">TOOLS</span><span class="font-bold text-white">AI / REACT / PY</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Philosophie -->
-    <section class="py-16">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-            <h2 class="text-3xl font-black uppercase tracking-tighter italic mb-4">The Practitioner's Edge</h2>
-            <p class="text-slate-600 max-w-2xl mx-auto">Vermeidung von Datenverlust und Zeitverschwendung durch intelligente, anwenderzentrierte Software-Logik.</p>
-        </div>
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="interactive-card p-8">
-                <h3 class="font-black uppercase text-sm mb-4 border-b pb-2">Problem</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Statische Excel-Listen, die bei Delays brechen, manuelle Fehler bei Schichtübergaben und teure externe IT-Konzeptionsphasen.</p>
-            </div>
-            <div class="interactive-card p-8 bg-slate-900 text-white border-none">
-                <h3 class="font-black uppercase text-sm mb-4 border-b border-slate-700 pb-2 text-sky-400">Solution</h3>
-                <p class="text-xs text-slate-300 leading-relaxed">Inverted Gantt Visualisierung mit Fuzzy-Logic Mapping. Die Wartungsinfo klebt am Flugzeug-Event, nicht an einer starren Uhrzeit.</p>
-            </div>
-            <div class="interactive-card p-8">
-                <h3 class="font-black uppercase text-sm mb-4 border-b pb-2">Benefit</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Radikale Reduktion der kognitiven Last für Schichtleiter. WYSIWYG-Präzision vom iPad bis zum A3-Ausdruck.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kompetenz Matrix -->
-    <section id="kompetenzen" class="py-20 bg-white border-y border-slate-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-16 items-center">
-            <div class="w-full md:w-1/2">
-                <div class="tech-badge mb-6 w-fit">ANALYTICS: HYBRID_EXPERTISE</div>
-                <h2 class="text-4xl font-black uppercase tracking-tighter mb-6 leading-none">Vom Hangar <br>ins Backend</h2>
-                <p class="text-slate-600 mb-8 leading-relaxed italic">
-                    "Ich bin kein klassischer Programmierer. Ich bin ein Engineer, der KI nutzt, um operative Probleme ohne Umwege in Code zu verwandeln."
-                </p>
-                <div class="grid grid-cols-2 gap-4 mono text-[10px] font-bold uppercase">
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 bg-sky-500"></span> MRO Standards</div>
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 bg-slate-900"></span> AI Prompting</div>
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 bg-sky-500"></span> B1/B2 Logic</div>
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 bg-slate-900"></span> Rapid Prototyping</div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/2 p-6 bg-slate-50 border border-slate-200 shadow-inner">
-                <div class="chart-container">
-                    <canvas id="skillsRadarChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Showcase -->
-    <section id="projekte" class="py-20">
+    <!-- 02: The Thesis (The Missing Link) -->
+    <section id="thesis" class="py-24 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b-4 border-slate-900 pb-4 mb-12">
-                <div>
-                    <span class="mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">PoC_Verification</span>
-                    <h2 class="text-4xl font-black uppercase tracking-tighter italic leading-none mt-2">MRO Ground Plan Visualizer</h2>
-                </div>
-                <div class="mono text-[10px] font-bold text-slate-500 mt-4 md:mt-0">
-                    VERSION: 2.1.8 | SYSTEM: STABLE<br>
-                    TARGET: NETLINE_OPS_API
-                </div>
+            <div class="section-number">02</div>
+            <div class="mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">// THE_MRO_PROBLEM</h2>
+                <h3 class="text-4xl font-black uppercase tracking-tight max-w-3xl">Warum Standard-Software in der Wartung scheitert.</h3>
             </div>
 
-            <div class="bg-white border border-slate-200 p-8 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-3 mono text-[9px] text-slate-300 font-bold tracking-widest uppercase">Simulation_v2</div>
-                <h4 class="mono font-bold text-xs mb-8 tracking-tighter text-sky-600">> ENGINE: DELAY_RESISTANCE_LOGIC</h4>
-                
-                <div class="w-full space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-20 mono text-[11px] font-bold">OE-TEX</div>
-                        <div class="flex-1 bg-slate-100 h-12 relative border border-slate-200 group">
-                            <div class="absolute left-[15%] w-[40%] h-full bg-slate-900 flex items-center justify-center text-white text-[10px] font-black transition-all duration-1000 shadow-2xl" id="anim-bar">
-                                DAILY CHECK / NOSE GEAR
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="space-y-8">
+                    <p class="text-xl text-slate-600 leading-relaxed">
+                        Die meisten IT-Lösungen werden von Programmierern gebaut, die nie eine Nachtschicht am Gate verbracht haben. Das Ergebnis sind **statische Tools für eine hochdynamische Welt**.
+                    </p>
+                    <div class="bg-white p-8 border border-slate-200">
+                        <h4 class="font-black uppercase text-sm mb-4 text-red-600">Der Fehler im System:</h4>
+                        <p class="text-sm text-slate-500 italic">"Wenn sich ein Flug durch ein Delay verschiebt, bricht die Excel-Logik. Informationen kleben an Uhrzeiten, nicht am Flugzeug. Das führt zu Informationsverlust, Stress und kognitiver Überlastung."</p>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-8 border border-slate-200 shadow-inner">
+                    <h4 class="mono text-[10px] font-bold text-slate-400 mb-6 uppercase">My Approach: Simple & Useful</h4>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="font-bold text-sky-500 mono">01</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase">Troubleshooting First</h5>
+                                <p class="text-xs text-slate-500">Ich analysiere IT-Engpässe wie Avionik-Fehler: Ursache finden, statt Symptome kurieren.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="font-bold text-sky-500 mono">02</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase">Anwenderzentrierung</h5>
+                                <p class="text-xs text-slate-500">UI/UX, die auf einem iPad im Regen genauso funktioniert wie auf dem 4K-Monitor im MCC.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="font-bold text-sky-500 mono">03</span>
+                            <div>
+                                <h5 class="font-bold text-sm uppercase">AI-Assisted Delivery</h5>
+                                <p class="text-xs text-slate-500">Ich nutze KI, um Fachlogik in Rekordzeit in Code zu gießen – Monate vor der Konzern-IT.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03: Proof of Execution -->
+    <section id="proof" class="py-24 bg-white border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-number">03</div>
+            <div class="mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">// CASE_STUDY_01</h2>
+                <h3 class="text-4xl font-black uppercase tracking-tight">MRO Ground Plan Visualizer</h3>
+                <p class="mt-4 text-slate-500 max-w-2xl">Vom Konzept zum funktionalen Prototyp (V2.1.8). Eine Web-App, die das Standzeiten-Management der Lufthansa Group Airlines neu denkt.</p>
+            </div>
+
+            <!-- Interaktives Demo-Fenster -->
+            <div class="bg-slate-900 p-1 shadow-2xl mb-12">
+                <div class="bg-white p-8 border border-slate-800 relative">
+                    <div class="absolute top-0 right-0 p-3 mono text-[9px] text-slate-300 font-bold uppercase">Simulation: Delay_Resistance</div>
+                    <h4 class="mono font-bold text-xs mb-8 tracking-tighter text-sky-600">> ENGINE: FUZZY_LOGIC_ID</h4>
+                    
+                    <div class="w-full space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-20 mono text-[11px] font-bold">OE-TEX</div>
+                            <div class="flex-1 bg-slate-100 h-12 relative border border-slate-200 overflow-hidden">
+                                <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[10px] font-black transition-all duration-1000" id="anim-bar">
+                                    A-CHECK / HANGAR 1
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex flex-col sm:flex-row justify-between items-center pt-6 border-t border-slate-100 gap-4">
-                        <p class="text-[10px] text-slate-400 uppercase font-bold italic tracking-wide">Data binds to AC_REG_FLIGHT ID – independent of time shift.</p>
-                        <button onclick="simulateDelay()" class="w-full sm:w-auto px-8 py-3 bg-sky-600 text-white text-[11px] font-black mono uppercase hover:bg-sky-700 transition-all shadow-md active:scale-95">Simulate Delay +3h</button>
+                        <div class="flex flex-col sm:flex-row justify-between items-center pt-6 border-t border-slate-100 gap-4">
+                            <p class="text-[10px] text-slate-400 uppercase font-bold italic tracking-wide">Die Wartungsinfo „klebt“ am Event (Kennzeichen/Datum/Flug), nicht an der Zeit.</p>
+                            <button onclick="simulateDelay()" class="w-full sm:w-auto px-8 py-3 bg-sky-600 text-white text-[11px] font-black mono uppercase hover:bg-sky-700 transition-all shadow-md active:scale-95">Simulate Delay +3h</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-                <button class="tab-btn active p-4 mono text-[10px] font-bold border border-slate-200 text-left" onclick="showInfo('Fuzzy Logic', 'Vermeidet den Verlust von Wartungsnotizen bei Flugverschiebungen durch dynamisches Mapping.')">1. FUZZY_ID</button>
-                <button class="tab-btn p-4 mono text-[10px] font-bold border border-slate-200 text-left text-slate-400" onclick="showInfo('Hybrid Storage', 'Kritische Flugdaten am Server, persönliche Sticky Notes lokal am Gerät (LocalStorage).')">2. HYBRID_STORE</button>
-                <button class="tab-btn p-4 mono text-[10px] font-bold border border-slate-200 text-left text-slate-400" onclick="showInfo('Resilient UX', 'FMS Health Panel überwacht die WLAN-Stabilität im Hangar und sichert den Stand.')">3. RESILIENCE</button>
-                <button class="tab-btn p-4 mono text-[10px] font-bold border border-slate-200 text-left text-slate-400" onclick="showInfo('WYSIWYG Print', '1:1 Skalierung für A4 Landscape Handover Protokolle ohne Spaltenumbruch.')">4. PRECISION_PRINT</button>
-            </div>
-            <div id="info-box" class="mt-4 p-6 bg-slate-900 text-sky-400 mono text-xs font-bold border-l-4 border-sky-500 animate-[fadeIn_0.3s]">
-                SYSTEM_READY: Select logic module for details...
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="chart-container order-2 md:order-1">
+                    <canvas id="skillsRadarChart"></canvas>
+                </div>
+                <div class="order-1 md:order-2 space-y-6">
+                    <div class="interactive-card p-6">
+                        <h4 class="font-black text-sm uppercase mb-2">Die technische Autorität</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">
+                            Der Visualizer ist der Beweis: Ich verstehe die **Physik des Flugzeugs** (B1/B2) und die **Mathematik des Codes** (React/Python) gleichermaßen.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="tab-btn active p-4 border border-slate-200 text-left" onclick="showInfo('Architecture', 'Konzipiert als 12-Factor App, sofort skalierbar auf FRA, MUC und ZRH.')">
+                            <span class="block mono text-[10px] text-sky-500 font-bold">LOG_01</span>
+                            <span class="block font-black text-[10px] uppercase">Scalability</span>
+                        </button>
+                        <button class="tab-btn p-4 border border-slate-200 text-left text-slate-400" onclick="showInfo('Security', 'Fuzzy-Logic Mapping und Edit-Tokens sichern die Datenintegrität bei jedem Wetter.')">
+                            <span class="block mono text-[10px] font-bold">LOG_02</span>
+                            <span class="block font-black text-[10px] uppercase">Security</span>
+                        </button>
+                    </div>
+                    <div id="info-box" class="p-6 bg-slate-900 text-sky-400 mono text-xs font-bold border-l-4 border-sky-500 min-h-[80px]">
+                        SYSTEM_ID: Select module for engineering details...
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Logs -->
-    <section id="erfahrung" class="py-20 bg-slate-900 text-white">
+    <!-- 04: Service Logs (Resume) -->
+    <section id="logs" class="py-24 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-black mb-12 uppercase tracking-tighter italic text-sky-400 border-b border-slate-800 pb-4">Verification_Service_Log</h2>
+            <div class="section-number">04</div>
+            <div class="mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-4">// CAREER_TIMELINE</h2>
+                <h3 class="text-4xl font-black uppercase tracking-tight">Verifizierung: 20 Jahre Verantwortung</h3>
+            </div>
             
-            <div class="space-y-12 relative border-l-2 border-slate-800 pl-8 ml-4">
+            <div class="space-y-12 relative border-l-2 border-slate-200 pl-8 ml-4">
                 <div class="relative">
-                    <span class="absolute -left-[41px] top-1 w-4 h-4 bg-sky-500 rounded-full border-4 border-slate-900"></span>
+                    <span class="absolute -left-[41px] top-1 w-4 h-4 bg-sky-500 rounded-full border-4 border-slate-50 shadow-md"></span>
                     <h3 class="text-xl font-black uppercase leading-tight">Digital Transformation Lead & Engineering Expert</h3>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Austrian Airlines / LH Group | Present</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">Überbrückung der Lücke zwischen operativer Front und IT. Entwicklung von Full-Stack Lösungen zur Prozessoptimierung.</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Austrian Airlines | Aktuell</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Entwicklung von Software-Strategien und PoCs, um die Kluft zwischen Hangar und IT zu schließen. Fokus auf Predictive Maintenance und UI-Optimization.</p>
                 </div>
 
                 <div class="relative">
-                    <span class="absolute -left-[41px] top-1 w-4 h-4 bg-slate-600 rounded-full border-4 border-slate-900"></span>
+                    <span class="absolute -left-[41px] top-1 w-4 h-4 bg-slate-300 rounded-full border-4 border-slate-50"></span>
                     <h3 class="text-xl font-black uppercase leading-tight">Flight Test Engineer & Station Engineer</h3>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Austrian Technik | 20+ Years Expertise</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">Fehlersuche auf Systemebene unter Extrembedingungen an Außenstationen und im Testflugbetrieb.</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Austrian Technik | VIE & Outstations</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Troubleshooting und Freigaben unter Extrembedingungen. Sicherstellung der operativen Verfügbarkeit an weltweiten Standorten.</p>
                 </div>
 
-                <div class="relative">
-                    <span class="absolute -left-[41px] top-1 w-4 h-4 bg-slate-600 rounded-full border-4 border-slate-900"></span>
+                <div class="relative opacity-60">
+                    <span class="absolute -left-[41px] top-1 w-4 h-4 bg-slate-200 rounded-full border-4 border-slate-50"></span>
                     <h3 class="text-xl font-black uppercase leading-tight">Certifying Technician B1.1 / B2</h3>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Technical Foundation</p>
-                    <p class="text-sm text-slate-300 leading-relaxed">Gesetzliche Freigabeverantwortung und physisches Troubleshooting am Luftfahrzeug.</p>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">The Foundation</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">Der physische Kern: Wartung, Reparatur und gesetzliche Verantwortung für den Flugbetrieb.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-slate-800">
+    <footer class="bg-black py-16 border-t border-slate-800">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <h2 class="text-xl font-black text-white uppercase tracking-widest italic mb-6 leading-none">Keep it Simple. <span class="text-slate-600 text-sm">Make it Useful.</span></h2>
-            <div class="flex justify-center flex-wrap gap-4 md:gap-8 mb-8 opacity-50">
+            <h2 class="text-xl font-black text-white uppercase tracking-widest italic mb-6 leading-none">The Practitioner's Edge.</h2>
+            <p class="text-slate-500 text-xs mb-10 max-w-lg mx-auto">Lassen Sie uns MRO gemeinsam digitaler machen – mit Lösungen, die den Schichtalltag wirklich verstehen.</p>
+            <div class="flex justify-center flex-wrap gap-8 opacity-50">
                 <span class="mono text-[8px] text-white uppercase tracking-widest">ING. RICHARD SCHÖLL</span>
-                <span class="mono text-[8px] text-white uppercase tracking-widest">TECSAVVY_CORE_SYS</span>
-                <span class="mono text-[8px] text-white uppercase tracking-widest">SYSTEM_VERSION_2.1.8</span>
+                <span class="mono text-[8px] text-white uppercase tracking-widest">TECSAVVY_CORE_SYSTEM</span>
+                <span class="mono text-[8px] text-white uppercase tracking-widest">SYS_V2.1.8_STABLE</span>
             </div>
         </div>
     </footer>
@@ -283,7 +319,7 @@
         function simulateDelay() {
             const bar = document.getElementById('anim-bar');
             bar.style.left = '45%';
-            bar.innerText = 'DELAYED: NOSE GEAR SVC';
+            bar.innerText = 'DELAYED: A-CHECK (SHIFTED)';
             bar.classList.add('bg-red-600');
         }
 
@@ -291,7 +327,6 @@
             const box = document.getElementById('info-box');
             box.innerHTML = `> MODULE: ${title.toUpperCase()}<br>> STATUS: ACTIVE<br>> LOG: ${text}`;
             
-            // UI Toggle
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
                 btn.classList.add('text-slate-400');
@@ -306,15 +341,16 @@
             type: 'radar',
             data: {
                 labels: [
-                    'OPERATIVE MRO (B1/B2)', 
+                    'HARDWARE AUTH (B1/B2)', 
                     'SYS TROUBLESHOOTING', 
                     'AI PROMPT ENG', 
-                    'FULL-STACK DEV', 
-                    'SIMPLE UI/UX', 
-                    'PROJECT LEAD'
+                    'FRONTEND (REACT)', 
+                    'BACKEND (PYTHON)', 
+                    'MRO DOMAIN LOGIC'
                 ],
                 datasets: [{
-                    data: [100, 95, 90, 75, 95, 85],
+                    label: 'Capability Spectrum',
+                    data: [100, 95, 90, 80, 75, 100],
                     backgroundColor: 'rgba(56, 189, 248, 0.15)',
                     borderColor: '#0ea5e9',
                     pointBackgroundColor: '#0ea5e9',
@@ -330,7 +366,7 @@
                         angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
                         grid: { color: 'rgba(0, 0, 0, 0.1)' },
                         pointLabels: {
-                            font: { family: "'JetBrains Mono', monospace", size: 9, weight: '700' },
+                            font: { family: "'JetBrains Mono', monospace", size: 8, weight: '700' },
                             color: '#475569'
                         },
                         ticks: { display: false, min: 0, max: 100 }
