@@ -227,7 +227,7 @@
                     
                     <!-- DIE WIEDERHERGESTELLTE PROBLEM-BOX -->
                     <div class="bg-slate-50 border border-slate-200 p-6 shadow-sm rounded-sm">
-                        <h3 class="font-black uppercase text-sm mb-3 text-red-600">Das Problem starrer Listen</h3>
+                        <h3 class="font-black uppercase text-sm mb-3 text-slate-900">Das Problem starrer Listen</h3>
                         <ul class="text-[13px] text-slate-600 space-y-2 list-disc pl-4">
                             <li><strong>Keine Flexibilität:</strong> Statische Listen visualisieren keine echten Bodenzeiten (Inverted Gantt).</li>
                             <li><strong>Datenverlust bei Delays:</strong> Manuelle Notizen verschieben sich nicht automatisch mit dem Flugplan mit.</li>
@@ -302,8 +302,8 @@
 
                 <!-- RECHTS: RADAR DIAGRAMM (Breiter als vorher) -->
                 <div class="lg:col-span-5">
-                    <div class="p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm sticky top-24 w-full overflow-hidden">
-                        <h4 class="mono text-[10px] font-bold text-slate-400 mb-8 uppercase text-center tracking-widest">Cross-Domain Capability Spectrum</h4>
+                    <div class="p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm sticky top-24 w-full">
+                        <h4 class="mono text-[10px] font-bold text-slate-900 mb-8 uppercase text-center tracking-widest">Cross-Domain Capability Spectrum</h4>
                         <div class="chart-container">
                             <canvas id="skillsRadarChart"></canvas>
                         </div>
@@ -431,6 +431,9 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                layout: {
+                    padding: 40
+                },
                 scales: {
                     r: {
                         angleLines: { color: 'rgba(148, 163, 184, 0.4)', lineWidth: 1 },
