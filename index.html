@@ -241,12 +241,20 @@
             <div class="mb-12 flex flex-col gap-3 w-full">
                 
                 <!-- ACCORDION: VIDEO -->
-                <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-800 overflow-hidden">
-                    <button class="w-full text-left px-4 sm:px-6 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-vid', this)">
-                        <span class="mono text-[11px] sm:text-[13px] text-sky-400 font-bold tracking-widest uppercase flex items-center gap-3">
-                            <i class="fa-solid fa-circle-play text-xl group-hover:scale-110 transition-transform"></i> Ground_Plan_Visualizer_DEMO.MP4
-                        </span>
-                        <span class="media-icon font-mono font-bold text-2xl text-slate-500 leading-none">+</span>
+                <div class="mb-12 flex flex-col gap-4 w-full mt-8">
+                
+                <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
+                    <button class="w-full text-left px-4 sm:px-6 py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-vid', this)">
+                        <div class="flex items-center gap-4 sm:gap-6">
+                            <div class="bg-sky-500/20 text-sky-400 w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                                <i class="fa-solid fa-play text-xl pl-1"></i>
+                            </div>
+                            <div>
+                                <span class="block text-white font-bold text-lg tracking-wide mb-1">2-Minuten-Demo ansehen</span>
+                                <span class="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest">Live-Preview / Inverted Gantt Logic</span>
+                            </div>
+                        </div>
+                        <span class="media-icon font-mono font-bold text-3xl text-slate-500 leading-none transition-colors group-hover:text-white">+</span>
                     </button>
                     <div id="media-vid" class="media-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
                         <video controls class="w-full h-auto aspect-video bg-black outline-none border-t border-slate-800" poster="preview.jpg">
@@ -257,12 +265,18 @@
                 </div>
 
                 <!-- ACCORDION: PITCH DECK -->
-                <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-800 overflow-hidden">
-                    <button class="w-full text-left px-4 sm:px-6 py-4 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-pdf', this)">
-                        <span class="mono text-[11px] sm:text-[13px] text-red-500 font-bold tracking-widest uppercase flex items-center gap-3">
-                            <i class="fa-solid fa-file-pdf text-xl group-hover:scale-110 transition-transform"></i> VIEW PITCH DECK
-                        </span>
-                        <span class="media-icon font-mono font-bold text-2xl text-slate-500 leading-none">+</span>
+                    <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
+                    <button class="w-full text-left px-4 sm:px-6 py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-pdf', this)">
+                        <div class="flex items-center gap-4 sm:gap-6">
+                            <div class="bg-red-500/20 text-red-500 w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                                <i class="fa-solid fa-file-pdf text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="block text-white font-bold text-lg tracking-wide mb-1">Pitch Deck ansehen</span>
+                                <span class="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest">Architektur & MRO Use Cases (PDF)</span>
+                            </div>
+                        </div>
+                        <span class="media-icon font-mono font-bold text-3xl text-slate-500 leading-none transition-colors group-hover:text-white">+</span>
                     </button>
                     <div id="media-pdf" class="media-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out bg-slate-800">
                         <div class="p-4 sm:p-8 border-t border-slate-700 flex flex-col items-center">
