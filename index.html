@@ -1,6 +1,6 @@
-<!-- =========================================
-         VERSION 15 / Media Accordion & Mobile Chart Fix
-         ========================================= -->
+  /* =========================================
+           VERSION 16: Optimierung der Mobilen UX
+           ========================================= */
 
 <!DOCTYPE html>
 <html lang="de">
@@ -15,7 +15,6 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
 
-    <!-- FontAwesome Bibliothek für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <meta property="og:type" content="website">
@@ -33,7 +32,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
             color: #0f172a;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Globaler Overflow-Schutz */
         }
 
         .mono { font-family: 'JetBrains Mono', monospace; }
@@ -92,13 +91,12 @@
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #94a3b8; }
-    </style>
 
-         /* =========================================
+        /* =========================================
            MOBILE RESPONSIVENESS & FLUID TYPOGRAPHY
            ========================================= */
         
-        /* 1. & 6. Horizontales Overflow konsequent unterbinden */
+        /* Horizontales Overflow konsequent unterbinden */
         html, body { 
             overflow-x: hidden; 
             width: 100%; 
@@ -106,28 +104,26 @@
             -webkit-text-size-adjust: 100%;
         }
 
-        /* 5. Media & Bilder absichern */
+        /* Media & Bilder absichern */
         img, video, iframe { 
             max-width: 100%; 
             height: auto; 
             display: block; 
         }
 
-        /* 7. Typografie — Fluid Scaling (clamp) */
+        /* Typografie — Fluid Scaling (clamp) */
         .fluid-h1 { font-size: clamp(2.5rem, 10vw, 5.5rem); line-height: 0.9; }
         .fluid-h2 { font-size: clamp(1.8rem, 6vw, 3rem); line-height: 1.1; }
-        .fluid-h3 { font-size: clamp(1.2rem, 5vw, 1.8rem); line-height: 1.2; }
 
-        /* 8. Padding auf Mobile reduzieren & Hintergrund-Zahlen anpassen */
+        /* Anpassungen für Handys (max 768px) */
         @media (max-width: 768px) {
             .section-number {
-                font-size: 5rem; /* Zahl darf den Text nicht überlagern */
+                font-size: 5rem;
                 top: -0.5rem;
                 left: 0;
             }
             
-            /* Erlaubt der Navigation auf winzigen Screens (iPhone SE) seitlich zu scrollen,
-               ohne das Layout zu sprengen (versteckt den Scrollbalken) */
+            /* Erlaubt der Navigation auf winzigen Screens seitlich zu scrollen */
             .mobile-nav-scroll {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
@@ -137,37 +133,32 @@
                 display: none; /* Chrome/Safari */
             }
         }
+    </style>
 </head>
-<body class="antialiased grid-bg text-slate-900">
-         
+<body class="antialiased grid-bg text-slate-900 w-full overflow-x-hidden">
 
-    <!-- =========================================
-         NAVIGATION / MENÜLEISTE OBEN
-         ========================================= -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row justify-between h-auto sm:h-14 items-center py-2 sm:py-0 gap-2 sm:gap-0">
+            <div class="flex flex-col sm:flex-row justify-between h-auto sm:h-14 items-center py-3 sm:py-0 gap-3 sm:gap-0">
                 <div class="flex items-center gap-4 w-full sm:w-auto justify-center sm:justify-start">
                     <span class="tech-badge">TECSAVVY_SOLUTIONS</span>
-         </div>
-    
-    <div class="flex items-center space-x-4 sm:space-x-6 mono text-[11px] sm:text-[12px] font-bold mobile-nav-scroll w-full sm:w-auto px-2 sm:px-0">
-        <a href="#intro" class="hover:text-sky-600 transition-colors shrink-0">/IDENTITY</a>
-        <a href="#philosophy" class="hover:text-sky-600 transition-colors shrink-0">/PHILOSOPHY</a>
-        <a href="#poc" class="hover:text-sky-600 transition-colors shrink-0">/POC_DEMO</a>
-        <a href="#logs" class="hover:text-sky-600 transition-colors shrink-0">/EXPERIENCE</a>
-        <a href="https://www.linkedin.com/..." target="_blank" class="shrink-0 text-slate-500 border border-slate-300 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full hover:bg-slate-100 transition-colors flex items-center gap-2">
-            <i class="fa-brands fa-linkedin text-sm"></i> LINKEDIN
-        </a>
-    </div>
-</div>
+                </div>
+                
+                <div class="flex items-center space-x-5 sm:space-x-6 mono text-[11px] sm:text-[12px] font-bold mobile-nav-scroll w-full sm:w-auto px-2 sm:px-0 whitespace-nowrap">
+                    <a href="#intro" class="hover:text-sky-600 transition-colors shrink-0">/IDENTITY</a>
+                    <a href="#philosophy" class="hover:text-sky-600 transition-colors shrink-0">/PHILOSOPHY</a>
+                    <a href="#poc" class="hover:text-sky-600 transition-colors shrink-0">/POC_DEMO</a>
+                    <a href="#logs" class="hover:text-sky-600 transition-colors shrink-0">/EXPERIENCE</a>
+                    
+                    <a href="https://www.linkedin.com/in/richard-sch%C3%B6ll-447799213/" target="_blank" class="shrink-0 text-slate-500 border border-slate-300 px-4 py-1.5 rounded-full hover:bg-slate-100 hover:text-slate-800 transition-colors flex items-center gap-2 shadow-sm">
+                        <i class="fa-brands fa-linkedin text-sm"></i> LINKEDIN
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- =========================================
-         SEKTION 01: IDENTITY (HEADER)
-         ========================================= -->
-    <header id="intro" class="pt-24 pb-16 bg-white border-b border-slate-200 relative overflow-hidden">
+    <header id="intro" class="pt-32 pb-12 md:pt-24 md:pb-16 bg-white border-b border-slate-200 relative overflow-hidden">
         <div class="absolute right-[-5%] top-1/2 transform -translate-y-1/2 opacity-[0.08] pointer-events-none z-0 hidden md:block" style="-webkit-mask-image: radial-gradient(circle, black 45%, transparent 70%); mask-image: radial-gradient(circle, black 45%, transparent 70%);">
             <img src="logo.png" alt="TecSavvy Logo" class="w-[700px] h-auto grayscale mix-blend-multiply" />
         </div>
@@ -175,40 +166,39 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="section-number">01</div>
             <div class="flex flex-col items-start">
-                <div class="flex items-center gap-3 mb-8">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
                     <span class="tech-badge">Ing. Richard Schöll</span>
                 </div>
                 
-                <h1 class="text-7xl sm:text-8xl font-black tracking-tighter uppercase leading-[0.85] mb-12">
+                <h1 class="fluid-h1 font-black tracking-tighter uppercase mb-8 md:mb-12 mt-2 md:mt-0">
                     Richard <br>Schöll.
                 </h1>
                 
-                  <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
-                    <div class="lg:col-span-2 border-l-8 border-slate-900 pl-8 flex flex-col justify-center">
-                        <p class="text-3xl text-slate-800 font-bold leading-tight mb-4">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 w-full">
+                    <div class="lg:col-span-2 border-l-8 border-slate-900 pl-6 md:pl-8 flex flex-col justify-center">
+                        <p class="text-2xl md:text-3xl text-slate-800 font-bold leading-tight mb-4">
                             Fokus: Operative Effizienz & <span class="text-sky-600">TecSavvy Solutions</span>
                         </p>
                         
-                        <p class="text-xl font-bold text-slate-700 max-w-xl mb-3">
+                        <p class="text-lg md:text-xl font-bold text-slate-700 max-w-xl mb-3">
                             Digitale Werkzeuge für MRO, die Line & Base Maintenance operativ entlasten.
                         </p>
                         
-                        <p class="text-md text-slate-500 max-w-xl leading-relaxed mb-8">
+                        <p class="text-sm md:text-base text-slate-500 max-w-xl leading-relaxed mb-8">
                             Ich warte keine Computer, ich warte Flugzeuge. Mit 20 Jahren Hangar-Erfahrung entwickle ich Software-Lösungen, um Wartungsprozesse skalierbar, intuitiv und delay-resistent zu machen.
                         </p>
 
-                        <div class="flex flex-wrap items-center gap-4 mt-4">
+                        <div class="flex flex-wrap items-center gap-4 mt-2">
                             <a href="#poc" class="bg-slate-900 border border-transparent text-white px-6 py-2.5 rounded-full hover:bg-slate-800 transition-colors shadow-sm flex items-center gap-3 text-sm font-semibold group">
                                 <i class="fa-solid fa-play text-sky-400 text-base group-hover:scale-110 transition-transform"></i> Demo ansehen
                             </a>
-                            
                             <a href="https://www.linkedin.com/in/richard-sch%C3%B6ll-447799213/" target="_blank" class="bg-white border border-slate-300 text-slate-600 px-6 py-2.5 rounded-full hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-sm flex items-center gap-3 text-sm font-semibold group">
                                 <i class="fa-brands fa-linkedin text-slate-400 text-base group-hover:text-sky-600 transition-colors"></i> Auf LinkedIn vernetzen
                             </a>
                         </div>
                     </div>
                     
-                    <div class="bg-slate-900 p-8 mono text-xs space-y-3 text-slate-300 shadow-2xl rounded-sm">
+                    <div class="bg-slate-900 p-6 md:p-8 mono text-[10px] md:text-xs space-y-3 text-slate-300 shadow-2xl rounded-sm w-full">
                         <div class="flex justify-between border-b border-slate-700 pb-2 text-slate-500"><span>REGISTRY</span><span>DATA_POINT</span></div>
                         <div class="flex justify-between"><span class="text-sky-400">LICENSE</span><span class="font-bold text-white uppercase">CAT B1.1 / B2</span></div>
                         <div class="flex justify-between"><span class="text-sky-400">EXP</span><span class="font-bold text-white uppercase">20+ Years</span></div>
@@ -220,60 +210,53 @@
         </div>
     </header>
 
-    <!-- =========================================
-         SEKTION 02: PHILOSOPHIE
-         ========================================= -->
-    <section id="philosophy" class="py-24 relative overflow-hidden">
+    <section id="philosophy" class="py-12 md:py-24 relative overflow-hidden w-full">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="section-number">02</div>
-            <div class="mb-10">
+            <div class="mb-10 mt-6 md:mt-0">
                 <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-2">// PHILOSOPHIE_LOG</h2>
-                <p class="text-3xl font-black text-slate-900 uppercase tracking-tight mb-6">Kein Blabla. Nur Lösungen.</p>
-                <p class="text-lg text-slate-500 max-w-2xl leading-relaxed">Digitalisierung in der Luftfahrt muss die rauen Bedingungen des 24/7 Betriebs aushalten. Mein Ansatz ist radikal anwenderzentriert: Software muss Zeit sparen, nicht erzeugen.</p>
+                <p class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight mb-6">Kein Blabla. Nur Lösungen.</p>
+                <p class="text-base md:text-lg text-slate-500 max-w-2xl leading-relaxed">Digitalisierung in der Luftfahrt muss die rauen Bedingungen des 24/7 Betriebs aushalten. Mein Ansatz ist radikal anwenderzentriert: Software muss Zeit sparen, nicht erzeugen.</p>
             </div>
         
-         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-3xl font-bold text-sky-500 mono mb-6">01</div>
-                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider">Troubleshooting</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl font-bold text-sky-500 mono mb-4 md:mb-6">01</div>
+                    <h3 class="font-black uppercase text-sm mb-3 md:mb-4 tracking-wider">Troubleshooting</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Fehleranalyse als Mindset – am Flieger und im Code. Probleme systematisch an der Wurzel packen.</p>
                 </div>
                 
-                <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-3xl font-bold text-sky-500 mono mb-6">02</div>
-                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider">Simplicity</h3>
+                <div class="bg-white p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl font-bold text-sky-500 mono mb-4 md:mb-6">02</div>
+                    <h3 class="font-black uppercase text-sm mb-3 md:mb-4 tracking-wider">Simplicity</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Komplexe Daten auf das Wesentliche reduzieren. Intuitive Interfaces (WYSIWYG) für den schnellen Überblick.</p>
                 </div>
                 
-                <div class="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-3xl font-bold text-sky-500 mono mb-6">03</div>
-                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider">Usefulness</h3>
+                <div class="bg-white p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-3xl font-bold text-sky-500 mono mb-4 md:mb-6">03</div>
+                    <h3 class="font-black uppercase text-sm mb-3 md:mb-4 tracking-wider">Usefulness</h3>
                     <p class="text-sm text-slate-500 leading-relaxed">Software muss im Hangar echte Zeit sparen – und darf bei Stress niemals durch Komplexität bremsen.</p>
                 </div>
                 
-                <div class="bg-slate-900 p-8 border-none shadow-xl">
-                    <div class="text-3xl font-bold text-sky-400 mono mb-6">04</div>
-                    <h3 class="font-black uppercase text-sm mb-4 tracking-wider text-white">AI-Orchestration</h3>
+                <div class="bg-slate-900 p-6 md:p-8 border-none shadow-xl">
+                    <div class="text-3xl font-bold text-sky-400 mono mb-4 md:mb-6">04</div>
+                    <h3 class="font-black uppercase text-sm mb-3 md:mb-4 tracking-wider text-white">AI-Orchestration</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">Gezielter KI-Einsatz, um Entwicklungszyklen zu beschleunigen und komplexe MRO-Logik zu validieren.</p>
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- =========================================
-         SEKTION 03: POC DEMO
-         ========================================= -->
-    <section id="poc" class="py-24 bg-white border-y border-slate-200 relative overflow-hidden">
+    <section id="poc" class="py-12 md:py-24 bg-white border-y border-slate-200 relative overflow-hidden w-full">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="section-number">03</div>
-            <div class="mb-10 border-b-2 border-slate-900 pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            
+            <div class="mb-10 border-b-2 border-slate-900 pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mt-6 md:mt-0">
                 <div class="max-w-3xl">
                     <span class="mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">Highlight_Innovation</span>
-                    <h2 class="text-4xl font-black uppercase tracking-tighter italic leading-none mt-2 mb-5">Ground Plan Visualizer</h2>
+                    <h2 class="fluid-h2 font-black uppercase tracking-tighter italic mt-2 mb-4 md:mb-5">Ground Plan Visualizer</h2>
                     
-                    <p class="text-lg text-slate-600 border-l-4 border-sky-500 pl-4 leading-relaxed font-medium">
+                    <p class="text-base md:text-lg text-slate-600 border-l-4 border-sky-500 pl-4 leading-relaxed font-medium">
                         Ein Inverted-Gantt Tool für Line & Base Maintenance, das Ground-Times und Delays visuell beherrschbar macht. Verbindet operative Hangar-Logik mit skalierbarer Web-Architektur.
                     </p>
                 </div>
@@ -283,24 +266,20 @@
                 </div>
             </div>
 
-            <!-- MEDIA ACCORDION BEREICH (VIDEO & PDF) -->
-            <div class="mb-12 flex flex-col gap-3 w-full">
-                
-                <!-- ACCORDION: VIDEO -->
-                <div class="mb-12 flex flex-col gap-4 w-full mt-8">
+            <div class="mb-12 flex flex-col gap-4 w-full mt-8">
                 
                 <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
-                    <button class="w-full text-left px-4 sm:px-6 py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-vid', this)">
+                    <button class="w-full text-left px-4 sm:px-6 py-4 md:py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-vid', this)">
                         <div class="flex items-center gap-4 sm:gap-6">
-                            <div class="bg-sky-500/20 text-sky-400 w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                                <i class="fa-solid fa-play text-xl pl-1"></i>
+                            <div class="bg-sky-500/20 text-sky-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                                <i class="fa-solid fa-play text-lg md:text-xl pl-1"></i>
                             </div>
                             <div>
-                                <span class="block text-white font-bold text-lg tracking-wide mb-1">2-Minuten-Demo ansehen</span>
-                                <span class="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest">Live-Preview / Inverted Gantt Logic</span>
+                                <span class="block text-white font-bold text-base md:text-lg tracking-wide mb-1">2-Minuten-Demo ansehen</span>
+                                <span class="mono text-[9px] sm:text-[11px] text-slate-400 uppercase tracking-widest block">Live-Preview / Inverted Gantt Logic</span>
                             </div>
                         </div>
-                        <span class="media-icon font-mono font-bold text-3xl text-slate-500 leading-none transition-colors group-hover:text-white">+</span>
+                        <span class="media-icon font-mono font-bold text-2xl md:text-3xl text-slate-500 leading-none transition-colors group-hover:text-white shrink-0 ml-2">+</span>
                     </button>
                     <div id="media-vid" class="media-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
                         <video controls class="w-full h-auto aspect-video bg-black outline-none border-t border-slate-800" poster="preview.jpg">
@@ -310,27 +289,24 @@
                     </div>
                 </div>
 
-                <!-- ACCORDION: PITCH DECK -->
-                    <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
-                    <button class="w-full text-left px-4 sm:px-6 py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-pdf', this)">
+                <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
+                    <button class="w-full text-left px-4 sm:px-6 py-4 md:py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-pdf', this)">
                         <div class="flex items-center gap-4 sm:gap-6">
-                            <div class="bg-red-500/20 text-red-500 w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                                <i class="fa-solid fa-file-pdf text-xl"></i>
+                            <div class="bg-red-500/20 text-red-500 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                                <i class="fa-solid fa-file-pdf text-lg md:text-xl"></i>
                             </div>
                             <div>
-                                <span class="block text-white font-bold text-lg tracking-wide mb-1">Pitch Deck ansehen</span>
-                                <span class="mono text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-widest">Architektur & MRO Use Cases (PDF)</span>
+                                <span class="block text-white font-bold text-base md:text-lg tracking-wide mb-1">Pitch Deck ansehen</span>
+                                <span class="mono text-[9px] sm:text-[11px] text-slate-400 uppercase tracking-widest block">Architektur & MRO Use Cases (PDF)</span>
                             </div>
                         </div>
-                        <span class="media-icon font-mono font-bold text-3xl text-slate-500 leading-none transition-colors group-hover:text-white">+</span>
+                        <span class="media-icon font-mono font-bold text-2xl md:text-3xl text-slate-500 leading-none transition-colors group-hover:text-white shrink-0 ml-2">+</span>
                     </button>
                     <div id="media-pdf" class="media-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out bg-slate-800">
                         <div class="p-4 sm:p-8 border-t border-slate-700 flex flex-col items-center">
-                            <!-- Das iframe bettet das PDF direkt im Browser ein -->
                             <iframe src="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf" class="w-full aspect-video rounded-sm shadow-2xl border border-slate-600 bg-slate-900 mb-6" style="min-height: 350px;"></iframe>
                             
-                            <!-- Fallback Button für Smartphones (Apple blockiert oft iframes für PDFs) -->
-                            <a href="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf" target="_blank" class="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-3 rounded-sm hover:bg-red-500 transition-colors mono font-bold uppercase tracking-wider text-[12px] sm:text-[14px] shadow-lg active:scale-95">
+                            <a href="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf" target="_blank" class="inline-flex items-center gap-3 bg-red-600 text-white px-6 md:px-8 py-3 rounded-sm hover:bg-red-500 transition-colors mono font-bold uppercase tracking-wider text-[11px] md:text-[14px] shadow-lg active:scale-95 text-center">
                                 <i class="fa-solid fa-download text-lg"></i> PDF Fullscreen / Download
                             </a>
                         </div>
@@ -339,10 +315,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                
-                <!-- LINKS: PROBLEM & AKKORDEON -->
-                <div class="lg:col-span-7 space-y-6">
-                    
+                <div class="lg:col-span-7 space-y-6 w-full">
                     <div class="bg-slate-50 border border-slate-200 p-6 shadow-sm rounded-sm">
                         <h3 class="font-black uppercase text-sm mb-3 text-slate-900">Das Problem starrer Listen</h3>
                         <ul class="text-[13px] text-slate-600 space-y-2 list-disc pl-4">
@@ -355,20 +328,20 @@
                     <h4 class="mono text-[10px] font-bold text-sky-600 mb-2 uppercase tracking-widest pt-2">TecSavvy Strategy: Simple & Useful</h4>
                     
                     <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-1', this)">
-                            <span class="mono text-xs font-bold uppercase tracking-widest">> LOGIC: FUZZY_ID</span>
+                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-1', this)">
+                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> LOGIC: FUZZY_ID</span>
                             <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
                         </button>
-                        <div id="acc-1" class="acc-content px-6 bg-slate-50 border-t border-slate-200">
+                        <div id="acc-1" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
                             <p class="text-sm text-slate-600 mb-6 italic">Meine Logik bindet Daten an das Flugereignis. Die Info wandert bei Delays automatisch auf der Zeitachse mit.</p>
                             
-                            <div class="bg-white border-2 border-slate-900 p-6 relative shadow-md">
+                            <div class="bg-white border-2 border-slate-900 p-4 md:p-6 relative shadow-md">
                                 <h4 class="mono font-bold text-[10px] mb-6 text-sky-600 uppercase">> ENGINE: DELAY_RESISTANCE_DEMO</h4>
                                 <div class="w-full space-y-6">
-                                    <div class="flex items-center gap-4">
-                                        <div class="w-16 mono text-[10px] font-bold">OE-TEX</div>
-                                        <div class="flex-1 bg-slate-100 h-10 relative border border-slate-200 overflow-hidden">
-                                            <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[9px] font-bold transition-all duration-700 uppercase" id="anim-bar">
+                                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                                        <div class="w-16 mono text-[10px] font-bold shrink-0">OE-TEX</div>
+                                        <div class="flex-1 w-full bg-slate-100 h-10 relative border border-slate-200 overflow-hidden">
+                                            <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[8px] sm:text-[9px] font-bold transition-all duration-700 uppercase truncate px-1" id="anim-bar">
                                                 A-CHECK / HANGAR 1
                                             </div>
                                         </div>
@@ -384,140 +357,129 @@
                     </div>
 
                     <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-2', this)">
-                            <span class="mono text-xs font-bold uppercase tracking-widest">> ARCH: HYBRID_STORE</span>
+                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-2', this)">
+                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> ARCH: HYBRID_STORE</span>
                             <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
                         </button>
-                        <div id="acc-2" class="acc-content px-6 bg-slate-50 border-t border-slate-200">
+                        <div id="acc-2" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
                             <p class="text-sm text-slate-600 mb-6 italic">Kritische Flugdaten liegen auf dem Server, individuelle Sticky-Notes zur Arbeitsorganisation bleiben sicher lokal am Gerät.</p>
                             <img src="dashboard.PNG" alt="Screenshot Hybrid Store" class="w-full h-auto border border-slate-300 shadow-md rounded-sm" onerror="this.style.display='none'" />
                         </div>
                     </div>
 
                     <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-3', this)">
-                            <span class="mono text-xs font-bold uppercase tracking-widest">> UX: PRECISION_PRINT</span>
+                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-3', this)">
+                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> UX: PRECISION_PRINT</span>
                             <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
                         </button>
-                        <div id="acc-3" class="acc-content px-6 bg-slate-50 border-t border-slate-200">
+                        <div id="acc-3" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
                             <p class="text-sm text-slate-600 mb-6 italic">Garantierte 1:1 Skalierung für A4 Landscape Handover Protokolle. Kein verrutschtes Layout, kein Spaltenumbruch beim Drucken.</p>
                             <img src="print.PNG" alt="Screenshot Print" class="w-full h-auto border border-slate-300 shadow-md rounded-sm" onerror="this.style.display='none'" />
                         </div>
                     </div>
 
                     <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-4', this)">
-                            <span class="mono text-xs font-bold uppercase tracking-widest">> WEB: RESPONSIVE_EXEC</span>
+                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-4', this)">
+                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> WEB: RESPONSIVE_EXEC</span>
                             <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
                         </button>
-                        <div id="acc-4" class="acc-content px-6 bg-slate-50 border-t border-slate-200">
+                        <div id="acc-4" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
                             <p class="text-sm text-slate-600 mb-6 italic">Web-Technologie statt lokaler Software. Läuft ohne Installation flüssig auf jedem iPad, iPhone und Desktop-Rechner im Netz.</p>
                             <img src="screenshot_3.png" alt="Screenshot Mobile/iPad" class="w-full h-auto border border-slate-300 shadow-md rounded-sm" onerror="this.style.display='none'" />
                         </div>
                     </div>
                 </div>
 
-                <!-- RECHTS: RADAR DIAGRAMM -->
-                <div class="lg:col-span-5">
-                    <div class="p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm sticky top-24 w-full">
+                <div class="lg:col-span-5 w-full mt-8 lg:mt-0">
+                    <div class="p-4 md:p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm lg:sticky lg:top-24 w-full">
                         <h4 class="mono text-[10px] font-bold text-slate-900 mb-8 uppercase text-center tracking-widest">Skill-Matrix: Aviation & Tech</h4>
                         <div class="chart-container">
                             <canvas id="skillsRadarChart"></canvas>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- =========================================
-         SEKTION 04: EXPERIENCE (LOGS)
-         ========================================= -->
-    <section id="logs" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section id="logs" class="py-12 md:py-24 bg-slate-900 text-white relative overflow-hidden w-full">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="section-number text-slate-800 opacity-40">04</div>
-            <div class="mb-16">
+            <div class="mb-12 md:mb-16 mt-6 md:mt-0">
                 <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-sky-400 mb-4">// SERVICE_LOGS: VERIFICATION</h2>
-                <h3 class="text-4xl font-black uppercase tracking-tight">Zwei Jahrzehnte technischer Verantwortung.</h3>
+                <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight">Zwei Jahrzehnte technischer Verantwortung.</h3>
             </div>
             
-     <div class="space-y-16 relative border-l-2 border-slate-700 pl-10 ml-4 mt-8">
+            <div class="space-y-12 md:space-y-16 relative border-l-2 border-slate-700 pl-8 md:pl-10 ml-2 md:ml-4 mt-8 w-full">
                 
                 <div class="relative">
-                    <span class="absolute -left-[51px] top-1 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-900 shadow-md"></span>
-                    <h3 class="text-2xl font-black uppercase leading-tight text-white mb-2">Certifying Technician B1.1/B2 & Digital Innovator</h3>
-                    <p class="text-xs font-bold text-sky-400 uppercase tracking-[0.2em] mb-4 italic">Austrian Airlines | Fokus: MRO Software Solutions</p>
-                    <p class="text-base text-slate-400 leading-relaxed mb-4">Verantwortlich für die Freigabe von Flugzeugen im Line-Betrieb. Aus Eigeninitiative Entwickler von digitalen Tools, um die Lücke zwischen Hangar-Realität und IT zu schließen.</p>
-                    <ul class="text-sm text-slate-300 space-y-2 font-medium">
-                        <li class="flex items-start gap-3"><span class="text-sky-500 font-bold">»</span> <span><strong class="text-white">Full-Stack PoC Entwicklung:</strong> Architektur und Programmierung des "Ground Plan Visualizers" (React/Python).</span></li>
-                        <li class="flex items-start gap-3"><span class="text-sky-500 font-bold">»</span> <span><strong class="text-white">Prozess-Optimierung:</strong> Identifikation und digitale Lösung operativer Engpässe im 24/7-Wartungsbetrieb.</span></li>
+                    <span class="absolute -left-[43px] md:-left-[51px] top-1 w-6 h-6 bg-sky-500 rounded-full border-4 border-slate-900 shadow-md"></span>
+                    <h3 class="text-xl md:text-2xl font-black uppercase leading-tight text-white mb-2 pr-2">Certifying Technician B1.1/B2 & Digital Innovator</h3>
+                    <p class="text-[10px] md:text-xs font-bold text-sky-400 uppercase tracking-[0.1em] md:tracking-[0.2em] mb-4 italic">Austrian Airlines | Fokus: MRO Software Solutions</p>
+                    <p class="text-sm md:text-base text-slate-400 leading-relaxed mb-4">Verantwortlich für die Freigabe von Flugzeugen im Line-Betrieb. Aus Eigeninitiative Entwickler von digitalen Tools, um die Lücke zwischen Hangar-Realität und IT zu schließen.</p>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-2 font-medium">
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-sky-500 font-bold">»</span> <span><strong class="text-white">Full-Stack PoC Entwicklung:</strong> Architektur und Programmierung des "Ground Plan Visualizers" (React/Python).</span></li>
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-sky-500 font-bold">»</span> <span><strong class="text-white">Prozess-Optimierung:</strong> Identifikation und digitale Lösung operativer Engpässe im 24/7-Wartungsbetrieb.</span></li>
                     </ul>
                 </div>
 
                 <div class="relative">
-                    <span class="absolute -left-[51px] top-1 w-6 h-6 bg-slate-500 rounded-full border-4 border-slate-900"></span>
-                    <h3 class="text-xl font-bold uppercase text-slate-100 mb-2">Line Maintenance Team Leader Deputy</h3>
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4 italic">Operative Führung & Koordination</p>
-                    <p class="text-base text-slate-400 leading-relaxed mb-4">Langjährige Verantwortung in der Steuerung des Schichtbetriebs. Dieses Verständnis für den operativen Druck bildet die fachliche Autorität (Domain Authority) für meine Software-Konzepte.</p>
-                    <ul class="text-sm text-slate-300 space-y-2 font-medium">
-                        <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">»</span> <span><strong class="text-white">Ressourcensteuerung:</strong> Operative Führung im hochdynamischen und zeitkritischen Schichtbetrieb.</span></li>
-                        <li class="flex items-start gap-3"><span class="text-slate-500 font-bold">»</span> <span><strong class="text-white">Requirement Engineering (Praxis):</strong> Übersetzung von Schichtleiter-Bedürfnissen in glasklare Software-Anforderungen.</span></li>
+                    <span class="absolute -left-[43px] md:-left-[51px] top-1 w-6 h-6 bg-slate-500 rounded-full border-4 border-slate-900"></span>
+                    <h3 class="text-lg md:text-xl font-bold uppercase text-slate-100 mb-2 pr-2">Line Maintenance Team Leader Deputy</h3>
+                    <p class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-[0.1em] md:tracking-[0.2em] mb-4 italic">Operative Führung & Koordination</p>
+                    <p class="text-sm md:text-base text-slate-400 leading-relaxed mb-4">Langjährige Verantwortung in der Steuerung des Schichtbetriebs. Dieses Verständnis für den operativen Druck bildet die fachliche Autorität (Domain Authority) für meine Software-Konzepte.</p>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-2 font-medium">
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-slate-500 font-bold">»</span> <span><strong class="text-white">Ressourcensteuerung:</strong> Operative Führung im hochdynamischen und zeitkritischen Schichtbetrieb.</span></li>
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-slate-500 font-bold">»</span> <span><strong class="text-white">Requirement Engineering:</strong> Übersetzung von Schichtleiter-Bedürfnissen in glasklare Software-Anforderungen.</span></li>
                     </ul>
                 </div>
 
                 <div class="relative">
-                    <span class="absolute -left-[51px] top-1 w-6 h-6 bg-slate-600 rounded-full border-4 border-slate-900"></span>
-                    <h3 class="text-xl font-bold uppercase text-slate-100 mb-2">Flight Test & Flying Station Engineer</h3>
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4 italic">VIE & Außenstationen | Hochdruck-Troubleshooting</p>
-                    <p class="text-base text-slate-400 leading-relaxed mb-4">Troubleshooting unter Realbedingungen. Hier habe ich gelernt, dass Software und Prozesse nur dann gut sind, wenn sie in Stress-Situationen sofort helfen.</p>
-                    <ul class="text-sm text-slate-300 space-y-2 font-medium">
-                        <li class="flex items-start gap-3"><span class="text-slate-600 font-bold">»</span> <span><strong class="text-white">Ad-hoc Problemlösung:</strong> System-Troubleshooting auf weltweiten Außenstationen ohne große Backoffice-Struktur.</span></li>
-                        <li class="flex items-start gap-3"><span class="text-slate-600 font-bold">»</span> <span><strong class="text-white">Resilienz:</strong> Fokus auf fehlerfreie Prozesse unter extremem Zeit- und Verantwortungsdruck.</span></li>
+                    <span class="absolute -left-[43px] md:-left-[51px] top-1 w-6 h-6 bg-slate-600 rounded-full border-4 border-slate-900"></span>
+                    <h3 class="text-lg md:text-xl font-bold uppercase text-slate-100 mb-2 pr-2">Flight Test & Flying Station Engineer</h3>
+                    <p class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-[0.1em] md:tracking-[0.2em] mb-4 italic">VIE & Außenstationen | Hochdruck-Troubleshooting</p>
+                    <p class="text-sm md:text-base text-slate-400 leading-relaxed mb-4">Troubleshooting unter Realbedingungen. Hier habe ich gelernt, dass Software und Prozesse nur dann gut sind, wenn sie in Stress-Situationen sofort helfen.</p>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-2 font-medium">
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-slate-600 font-bold">»</span> <span><strong class="text-white">Ad-hoc Problemlösung:</strong> System-Troubleshooting auf weltweiten Außenstationen ohne Backoffice-Struktur.</span></li>
+                        <li class="flex items-start gap-2 md:gap-3"><span class="text-slate-600 font-bold">»</span> <span><strong class="text-white">Resilienz:</strong> Fokus auf fehlerfreie Prozesse unter extremem Zeit- und Verantwortungsdruck.</span></li>
                     </ul>
                 </div>
 
                 <div class="relative opacity-60">
-                    <span class="absolute -left-[51px] top-1 w-6 h-6 bg-slate-800 rounded-full border-4 border-slate-900"></span>
-                    <h3 class="text-xl font-bold uppercase text-slate-400 mb-2">Aircraft Mechanic / Base & Line Maintenance</h3>
-                    <p class="text-xs font-bold text-slate-600 uppercase tracking-[0.2em] mb-4 italic">Das operative Fundament</p>
-                    <p class="text-base text-slate-500 leading-relaxed">Der Grundstein: Tiefgehende physische Wartungserfahrung am Flugzeug. Darauf baut heute mein gesamtes Systemverständnis für digitale MRO-Abläufe auf.</p>
+                    <span class="absolute -left-[43px] md:-left-[51px] top-1 w-6 h-6 bg-slate-800 rounded-full border-4 border-slate-900"></span>
+                    <h3 class="text-lg md:text-xl font-bold uppercase text-slate-400 mb-2 pr-2">Aircraft Mechanic / Base & Line Maintenance</h3>
+                    <p class="text-[10px] md:text-xs font-bold text-slate-600 uppercase tracking-[0.1em] md:tracking-[0.2em] mb-4 italic">Das operative Fundament</p>
+                    <p class="text-sm md:text-base text-slate-500 leading-relaxed">Der Grundstein: Tiefgehende physische Wartungserfahrung am Flugzeug. Darauf baut heute mein gesamtes Systemverständnis für digitale MRO-Abläufe auf.</p>
                 </div>
                 
             </div>
         </div>
     </section>
 
-    <!-- =========================================
-         FOOTER
-         ========================================= -->
-<footer class="bg-black py-16 border-t border-slate-800 text-center relative z-20">
+    <footer class="bg-black py-12 md:py-16 border-t border-slate-800 text-center relative z-20 w-full overflow-hidden">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-black text-white uppercase tracking-widest italic mb-6 leading-none">The Practitioner's Edge.</h2>
+            <h2 class="text-2xl md:text-3xl font-black text-white uppercase tracking-widest italic mb-6 leading-none">The Practitioner's Edge.</h2>
             
-            <p class="text-slate-400 mb-8 max-w-xl mx-auto text-lg leading-relaxed">
+            <p class="text-sm md:text-lg text-slate-400 mb-8 max-w-xl mx-auto leading-relaxed">
                 Innovation entsteht nicht im Silo. Ich suche immer den Austausch mit anderen MRO-Experten, Entwicklern und Digital-Pionieren in der Aviation-Branche.
             </p>
-            <div class="mb-12">
-                 <a href="https://www.linkedin.com/in/richard-sch%C3%B6ll-447799213/" target="_blank" class="border border-slate-600 text-slate-300 px-8 py-3 rounded-full hover:bg-slate-900 hover:text-white hover:border-sky-500 transition-all duration-300 shadow-sm inline-flex items-center gap-3 text-sm font-semibold group">
+            <div class="mb-10 md:mb-12">
+                 <a href="https://www.linkedin.com/in/richard-sch%C3%B6ll-447799213/" target="_blank" class="border border-slate-600 text-slate-300 px-6 md:px-8 py-3 rounded-full hover:bg-slate-900 hover:text-white hover:border-sky-500 transition-all duration-300 shadow-sm inline-flex items-center justify-center gap-3 text-sm font-semibold group w-full sm:w-auto">
                     <i class="fa-brands fa-linkedin text-slate-400 group-hover:text-sky-400 text-lg transition-colors"></i> Auf LinkedIn vernetzen
                 </a>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 opacity-40 mb-10">
-                <span class="mono text-[11px] text-white uppercase tracking-widest">ING. RICHARD SCHÖLL</span>
-                <span class="w-1 h-1 bg-white rounded-full hidden md:block"></span>
-                <span class="mono text-[11px] text-white uppercase tracking-widest">TECSAVVY_CORE_SYSTEM</span>
-                <span class="w-1 h-1 bg-white rounded-full hidden md:block"></span>
-                <span class="mono text-[11px] text-white uppercase tracking-widest">PoC_V2.1.8_STABLE_BUILD</span>
+            <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-6 opacity-40 mb-10 text-center">
+                <span class="mono text-[9px] sm:text-[11px] text-white uppercase tracking-widest break-words w-full sm:w-auto">ING. RICHARD SCHÖLL</span>
+                <span class="w-1 h-1 bg-white rounded-full hidden sm:block"></span>
+                <span class="mono text-[9px] sm:text-[11px] text-white uppercase tracking-widest break-words w-full sm:w-auto">TECSAVVY_CORE_SYSTEM</span>
+                <span class="w-1 h-1 bg-white rounded-full hidden sm:block"></span>
+                <span class="mono text-[9px] sm:text-[11px] text-white uppercase tracking-widest break-words w-full sm:w-auto">PoC_V2.1.8_STABLE_BUILD</span>
             </div>
-            <p class="text-[12px] text-slate-500 uppercase tracking-widest">&copy; 2026 Ing. Richard Schöll | TecSavvy Solutions</p>
+            <p class="text-[10px] md:text-[12px] text-slate-500 uppercase tracking-widest">&copy; 2026 Ing. Richard Schöll | TecSavvy Solutions</p>
         </div>
     </footer>
 
-    <!-- =========================================
-         JAVASCRIPT
-         ========================================= -->
     <script>
         function simulateDelay() {
             const bar = document.getElementById('anim-bar');
@@ -557,10 +519,9 @@
                 targetContent.style.maxHeight = '0px';
                 targetContent.style.opacity = '0';
                 icon.innerText = '+';
-                icon.classList.remove('text-sky-400', 'text-red-500');
+                icon.classList.remove('text-sky-400', 'text-red-500', 'text-white');
                 icon.classList.add('text-slate-500');
                 
-                // Video pausieren beim Schließen
                 const vid = targetContent.querySelector('video');
                 if(vid) vid.pause();
             } else {
@@ -596,7 +557,7 @@
                     pointHoverBackgroundColor: '#fff',
                     pointHoverBorderColor: '#0ea5e9',
                     borderWidth: 3,
-                    pointRadius: 4
+                    pointRadius: isMobile ? 3 : 4
                 }]
             },
             options: {
@@ -612,11 +573,11 @@
                         pointLabels: {
                             font: { 
                                 family: "'JetBrains Mono', monospace", 
-                                size: 14, 
+                                size: isMobile ? 10 : 14, 
                                 weight: '800' 
                             },
                             color: '#1e293b',
-                            padding: 20
+                            padding: isMobile ? 10 : 20
                         },
                         ticks: { display: false, stepSize: 20 },
                         suggestedMin: 0,
