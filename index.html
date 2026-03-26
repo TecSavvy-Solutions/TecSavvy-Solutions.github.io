@@ -582,42 +582,43 @@
                     pointRadius: isMobile ? 3 : 4
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: {
-                    padding: isMobile ? 20 : 60
+options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+        // Erhöhtes Padding für Mobile (isMobile), damit die Labels Platz haben
+        padding: isMobile ? 40 : 80 
+    },
+    scales: {
+        r: {
+            angleLines: { color: 'rgba(148, 163, 184, 0.4)', lineWidth: 1 },
+            grid: { color: 'rgba(148, 163, 184, 0.2)', lineWidth: 1 },
+            pointLabels: {
+                font: { 
+                    family: "'JetBrains Mono', monospace", 
+                    size: isMobile ? 9 : 12, // S24 braucht 9px für die langen Wörter
+                    weight: '800' 
                 },
-                scales: {
-                    r: {
-                        angleLines: { color: 'rgba(148, 163, 184, 0.4)', lineWidth: 1 },
-                        grid: { color: 'rgba(148, 163, 184, 0.2)', lineWidth: 1 },
-                        pointLabels: {
-                            font: { 
-                                family: "'JetBrains Mono', monospace", 
-                                size: isMobile ? 10 : 12, 
-                                weight: '800' 
-                            },
-                            color: '#1e293b',
-                            padding: isMobile ? 8 : 15
-                        },
-                        ticks: { display: false, stepSize: 20 },
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#0f172a',
-                        titleFont: { size: 14, family: 'Inter' },
-                        bodyFont: { size: 14, family: 'Inter' },
-                        padding: 12,
-                        displayColors: false
-                    }
-                }
-            }
-        });
+                color: '#1e293b',
+                // Abstand zwischen Text und Diagramm-Spitze
+                padding: isMobile ? 10 : 20 
+            },
+            ticks: { display: false, stepSize: 20 },
+            suggestedMin: 0,
+            suggestedMax: 110 // Erhöht auf 110, um den Kreis etwas "einzuschrumpfen"
+        }
+    },
+    plugins: {
+        legend: { display: false },
+        tooltip: {
+            backgroundColor: '#0f172a',
+            titleFont: { size: 14, family: 'Inter' },
+            bodyFont: { size: 14, family: 'Inter' },
+            padding: 12,
+            displayColors: false
+        }
+    }
+}        });
     </script>
 </body>
 </html>
