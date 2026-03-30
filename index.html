@@ -1,5 +1,5 @@
 <!-- =========================================
-         VERSION 16 / Mobile UX Optimierung
+         VERSION 18 / Clean Architecture Edition
          ========================================= -->
 
 <!DOCTYPE html>
@@ -73,19 +73,12 @@
             user-select: none;
         }
 
-        .acc-content {
-            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            padding-top: 0;
-            padding-bottom: 0;
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
         }
-        .acc-content.open {
-            max-height: 800px;
-            opacity: 1;
-            padding-top: 1.5rem;
-            padding-bottom: 1.5rem;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         ::-webkit-scrollbar { width: 6px; }
@@ -205,7 +198,7 @@
                         </div>
                     </div>
                     
-                    <div class="bg-slate-900 p-6 md:p-8 mono text-[10px] md:text-xs space-y-3 text-slate-300 shadow-2xl rounded-sm w-full">
+                    <div class="bg-slate-900 p-6 md:p-8 mono text-[10px] md:text-xs space-y-3 text-slate-300 shadow-2xl rounded-sm w-full lg:mt-14 self-start">
                         <div class="flex justify-between border-b border-slate-700 pb-2 text-slate-500"><span>REGISTRY</span><span>DATA_POINT</span></div>
                         <div class="flex justify-between"><span class="text-sky-400">LICENSE</span><span class="font-bold text-white uppercase">CAT B1.1 / B2</span></div>
                         <div class="flex justify-between"><span class="text-sky-400">EXP</span><span class="font-bold text-white uppercase">20+ Years</span></div>
@@ -258,17 +251,17 @@
     </section>
 
   <!-- =========================================
-         SEKTION 03: POC DEMO
+         SEKTION 03: POC DEMO (V19 – Pill Toggle + Tabbed Interface)
          ========================================= -->
-    <section id="poc" class="py-12 md:py-24 bg-white border-y border-slate-200 relative overflow-hidden w-full">
+    <section id="poc" class="py-12 md:py-24 bg-white border-y border-slate-200 relative w-full">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="section-number">03</div>
-            
+
             <div class="mb-10 border-b-2 border-slate-900 pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mt-6 md:mt-0">
                 <div class="max-w-3xl">
                     <span class="mono text-[10px] text-slate-400 uppercase tracking-widest font-bold">Highlight_Innovation</span>
                     <h2 class="fluid-h2 font-black uppercase tracking-tighter italic mt-2 mb-4 md:mb-5">Ground Plan Visualizer</h2>
-                    
+
                     <p class="text-base md:text-lg text-slate-600 border-l-4 border-sky-500 pl-4 leading-relaxed font-medium">
                         Ein Inverted-Gantt Tool für Line & Base Maintenance, das Ground-Times und Delays visuell beherrschbar macht. Verbindet operative Hangar-Logik mit skalierbarer Web-Architektur.
                     </p>
@@ -279,139 +272,119 @@
                 </div>
             </div>
 
-            <div class="mb-12 flex flex-col gap-4 w-full mt-8">
-                
-                <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
-                    <button class="w-full text-left px-4 sm:px-6 py-4 md:py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-vid', this)">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <div class="bg-sky-500/20 text-sky-400 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                                <i class="fa-solid fa-play text-lg md:text-xl pl-1"></i>
-                            </div>
-                            <div>
-                                <span class="block text-white font-bold text-base md:text-lg tracking-wide mb-1">2-Minuten-Demo ansehen</span>
-                                <span class="mono text-[9px] sm:text-[11px] text-slate-400 uppercase tracking-widest block">Live-Preview / Inverted Gantt Logic</span>
-                            </div>
-                        </div>
-                        <span class="media-icon font-mono font-bold text-2xl md:text-3xl text-slate-500 leading-none transition-colors group-hover:text-white shrink-0 ml-2">+</span>
+            <!-- Pill-Toggle: Video / PDF – angepasst an Section 01 Button-Style -->
+            <div class="w-full flex justify-center mb-8">
+                <div class="bg-slate-100 p-1.5 md:p-2 rounded-full flex gap-2 md:gap-3 border border-slate-200 shadow-inner">
+                    <button id="btn-vid" onclick="switchMedia('vid')" class="px-6 md:px-8 py-3 md:py-3.5 rounded-full bg-slate-900 shadow-md text-sm md:text-base font-semibold text-white transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-play text-sky-400 text-base group-hover:scale-110 transition-transform"></i> 2-Min Demo
                     </button>
-                    <div id="media-vid" class="media-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out">
-                        <video controls class="w-full h-auto aspect-video bg-black outline-none border-t border-slate-800" poster="preview.jpg">
-                            <source src="Ground_Plan_DEMO_Video.mp4" type="video/mp4">
-                            Dein Browser unterstützt das Video-Tag nicht.
-                        </video>
-                    </div>
+                    <button id="btn-pdf" onclick="switchMedia('pdf')" class="px-6 md:px-8 py-3 md:py-3.5 rounded-full text-sm md:text-base font-semibold text-slate-500 hover:text-slate-900 transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-file-pdf text-red-500 text-base"></i> Pitch Deck
+                    </button>
                 </div>
+            </div>
 
-                <div class="bg-slate-900 rounded-sm shadow-xl border border-slate-700 overflow-hidden">
-                    <button class="w-full text-left px-4 sm:px-6 py-4 md:py-5 flex justify-between items-center hover:bg-slate-800 transition-colors group" onclick="toggleMedia('media-pdf', this)">
-                        <div class="flex items-center gap-4 sm:gap-6">
-                            <div class="bg-red-500/20 text-red-500 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                                <i class="fa-solid fa-file-pdf text-lg md:text-xl"></i>
-                            </div>
-                            <div>
-                                <span class="block text-white font-bold text-base md:text-lg tracking-wide mb-1">Pitch Deck ansehen</span>
-                                <span class="mono text-[9px] sm:text-[11px] text-slate-400 uppercase tracking-widest block">Architektur & MRO Use Cases (PDF)</span>
-                            </div>
-                        </div>
-                        <span class="media-icon font-mono font-bold text-2xl md:text-3xl text-slate-500 leading-none transition-colors group-hover:text-white shrink-0 ml-2">+</span>
-                    </button>
-                    <div id="media-pdf" class="media-content max-h-0 opacity-0 overflow-hidden transition-all duration-700 ease-in-out bg-slate-800">
-                        <div class="p-4 sm:p-8 border-t border-slate-700 flex flex-col items-center">
-                            <iframe src="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf" class="w-full aspect-video rounded-sm shadow-2xl border border-slate-600 bg-slate-900 mb-6" style="min-height: 350px;"></iframe>
-                            
-                            <a href="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf" target="_blank" class="inline-flex items-center gap-3 bg-red-600 text-white px-6 md:px-8 py-3 rounded-sm hover:bg-red-500 transition-colors mono font-bold uppercase tracking-wider text-[11px] md:text-[14px] shadow-lg active:scale-95 text-center">
-                                <i class="fa-solid fa-download text-lg"></i> PDF Fullscreen / Download
-                            </a>
-                        </div>
+            <!-- Video Display – Custom Play Button zentriert -->
+            <div id="display-vid" class="media-box block mb-16 bg-black rounded-xl shadow-2xl overflow-hidden border border-slate-800 max-w-4xl mx-auto transition-opacity duration-300 relative cursor-pointer" onclick="playVideo(this)">
+                <video id="demo-video" class="w-full h-auto aspect-video outline-none" poster="preview.jpg" preload="metadata">
+                    <source src="Ground_Plan_DEMO_Video.mp4" type="video/mp4">
+                    Dein Browser unterstützt das Video-Tag nicht.
+                </video>
+                <!-- Custom Play Overlay -->
+                <div id="play-overlay" class="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300">
+                    <div class="w-20 h-20 md:w-24 md:h-24 bg-white/90 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-play text-slate-900 text-2xl md:text-3xl pl-1"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-                <div class="lg:col-span-7 space-y-6 w-full">
-                    <div class="bg-slate-50 border border-slate-200 p-6 shadow-sm rounded-sm">
-                        <h3 class="font-black uppercase text-sm mb-3 text-slate-900">Das Problem starrer Listen</h3>
-                        <ul class="text-[13px] text-slate-600 space-y-2 list-disc pl-4">
-                            <li><strong>Keine Flexibilität:</strong> Statische Listen visualisieren keine echten Bodenzeiten (Inverted Gantt).</li>
-                            <li><strong>Datenverlust bei Delays:</strong> Manuelle Notizen verschieben sich nicht automatisch mit dem Flugplan mit.</li>
-                            <li><strong>Fehlende Übersicht:</strong> Eine intuitive Ansicht für die gesamte Flotte & LH-Group Airlines fehlt.</li>
-                        </ul>
-                    </div>
+            <!-- PDF Display – volle Höhe, Inhaltsverzeichnis eingeklappt -->
+            <div id="display-pdf" class="media-box hidden mb-16 rounded-xl shadow-2xl border border-slate-800 max-w-4xl mx-auto flex flex-col items-center transition-opacity duration-300 overflow-hidden">
+                <iframe src="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf#toolbar=1&navpanes=0&view=FitH" class="w-full rounded-t-xl bg-slate-100" style="height: 75vh; min-height: 500px;"></iframe>
+                <div class="w-full bg-slate-900 px-6 py-4 flex justify-center rounded-b-xl">
+                    <a href="MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf" target="_blank" class="inline-flex items-center gap-3 bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-500 transition-colors mono font-bold uppercase tracking-wider text-[12px] shadow-lg active:scale-95">
+                        <i class="fa-solid fa-download"></i> PDF Fullscreen / Download
+                    </a>
+                </div>
+            </div>
 
-                    <h4 class="mono text-[10px] font-bold text-sky-600 mb-2 uppercase tracking-widest pt-2">TecSavvy Strategy: Simple & Useful</h4>
-                    
-                    <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-1', this)">
-                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> LOGIC: FUZZY_ID</span>
-                            <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
-                        </button>
-                        <div id="acc-1" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
-                            <p class="text-sm text-slate-600 mb-6 italic">Meine Logik bindet Daten an das Flugereignis. Die Info wandert bei Delays automatisch auf der Zeitachse mit.</p>
-                            
-                            <div class="bg-white border-2 border-slate-900 p-4 md:p-6 relative shadow-md">
-                                <h4 class="mono font-bold text-[10px] mb-6 text-sky-600 uppercase">> ENGINE: DELAY_RESISTANCE_DEMO</h4>
-                                <div class="w-full space-y-6">
-                                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
-                                        <div class="w-16 mono text-[10px] font-bold shrink-0">OE-TEX</div>
-                                        <div class="flex-1 w-full bg-slate-100 h-10 relative border border-slate-200 overflow-hidden">
-                                            <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[8px] sm:text-[9px] font-bold transition-all duration-700 uppercase truncate px-1" id="anim-bar">
-                                                A-CHECK / HANGAR 1
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-end pt-2">
-                                        <button onclick="simulateDelay()" class="px-6 py-2 bg-sky-600 text-white text-[10px] font-black mono uppercase hover:bg-sky-700 transition-colors shadow-lg active:scale-95">
-                                            Simulate Delay +2h
-                                        </button>
+            <!-- Tabbed Interface: Strategy Links + Content Rechts -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mt-12">
+
+                <!-- Tab-Buttons Links -->
+                <div class="lg:col-span-4 flex flex-col gap-3">
+                    <h4 class="mono text-[10px] font-bold text-sky-600 mb-4 uppercase tracking-widest pl-2">TecSavvy Strategy</h4>
+
+                    <button onclick="switchTab('tab-1', this)" class="feature-btn w-full text-left px-5 md:px-6 py-5 md:py-5 rounded-lg bg-slate-900 text-white shadow-md transition-all flex items-center justify-between group">
+                        <span class="mono text-xs md:text-sm font-bold uppercase tracking-widest">Logic: Fuzzy_ID</span>
+                        <span class="status-dot w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse shrink-0"></span>
+                    </button>
+
+                    <button onclick="switchTab('tab-2', this)" class="feature-btn w-full text-left px-5 md:px-6 py-5 md:py-5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-between group">
+                        <span class="mono text-xs md:text-sm font-bold uppercase tracking-widest">Arch: Hybrid_Store</span>
+                        <span class="status-dot w-2.5 h-2.5 rounded-full bg-slate-300 shrink-0"></span>
+                    </button>
+
+                    <button onclick="switchTab('tab-3', this)" class="feature-btn w-full text-left px-5 md:px-6 py-5 md:py-5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-between group">
+                        <span class="mono text-xs md:text-sm font-bold uppercase tracking-widest">UX: Precision_Print</span>
+                        <span class="status-dot w-2.5 h-2.5 rounded-full bg-slate-300 shrink-0"></span>
+                    </button>
+
+                    <button onclick="switchTab('tab-4', this)" class="feature-btn w-full text-left px-5 md:px-6 py-5 md:py-5 rounded-lg bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-all flex items-center justify-between group">
+                        <span class="mono text-xs md:text-sm font-bold uppercase tracking-widest">Web: Responsive_Exec</span>
+                        <span class="status-dot w-2.5 h-2.5 rounded-full bg-slate-300 shrink-0"></span>
+                    </button>
+                </div>
+
+                <!-- Tab-Content Rechts (statische Höhe, kein Layout Shift) -->
+                <div class="lg:col-span-8 bg-slate-50 border border-slate-200 rounded-xl p-6 md:p-8 shadow-inner min-h-[400px] flex items-center justify-center">
+
+                    <div id="tab-1" class="feature-content w-full block animate-fade-in">
+                        <p class="text-base text-slate-600 mb-8 font-medium border-l-2 border-sky-500 pl-4">Meine Logik bindet Daten an das Flugereignis. Die Info wandert bei Delays automatisch auf der Zeitachse mit.</p>
+                        <div class="bg-white border-2 border-slate-900 p-6 relative shadow-md rounded-lg">
+                            <h4 class="mono font-bold text-[10px] mb-6 text-sky-600 uppercase">> Engine: Delay_Resistance_Demo</h4>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                                <div class="w-16 mono text-xs font-bold shrink-0">OE-TEX</div>
+                                <div class="flex-1 w-full bg-slate-100 h-10 relative border border-slate-200 overflow-hidden rounded-sm">
+                                    <div class="absolute left-[10%] w-[45%] h-full bg-slate-900 flex items-center justify-center text-white text-[9px] font-bold transition-all duration-700 uppercase px-2" id="anim-bar">
+                                        A-CHECK / HANGAR 1
                                     </div>
                                 </div>
                             </div>
+                            <div class="flex justify-end pt-6">
+                                <button onclick="simulateDelay()" class="px-6 py-2.5 bg-sky-600 text-white text-[10px] font-black mono uppercase rounded-full hover:bg-sky-700 transition-colors shadow-md active:scale-95">
+                                    Simulate Delay +2h
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-2', this)">
-                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> ARCH: HYBRID_STORE</span>
-                            <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
-                        </button>
-                        <div id="acc-2" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
-                            <p class="text-sm text-slate-600 mb-6 italic">Kritische Flugdaten liegen auf dem Server, individuelle Sticky-Notes zur Arbeitsorganisation bleiben sicher lokal am Gerät.</p>
-                            <img src="dashboard.PNG" alt="Screenshot Hybrid Store" class="w-full h-auto border border-slate-300 shadow-md rounded-sm" onerror="this.style.display='none'" />
-                        </div>
+                    <div id="tab-2" class="feature-content w-full hidden animate-fade-in">
+                        <p class="text-base text-slate-600 mb-6 font-medium border-l-2 border-sky-500 pl-4">Kritische Flugdaten liegen auf dem Server, individuelle Sticky-Notes zur Arbeitsorganisation bleiben sicher lokal am Gerät.</p>
+                        <img src="dashboard.PNG" alt="Screenshot Hybrid Store" class="w-full h-auto border border-slate-300 shadow-md rounded-lg" onerror="this.style.display='none'" />
                     </div>
 
-                    <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-3', this)">
-                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> UX: PRECISION_PRINT</span>
-                            <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
-                        </button>
-                        <div id="acc-3" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
-                            <p class="text-sm text-slate-600 mb-6 italic">Garantierte 1:1 Skalierung für A4 Landscape Handover Protokolle. Kein verrutschtes Layout, kein Spaltenumbruch beim Drucken.</p>
-                            <img src="print.PNG" alt="Screenshot Print" class="w-full h-auto border border-slate-300 shadow-md rounded-sm" onerror="this.style.display='none'" />
-                        </div>
+                    <div id="tab-3" class="feature-content w-full hidden animate-fade-in">
+                        <p class="text-base text-slate-600 mb-6 font-medium border-l-2 border-sky-500 pl-4">Garantierte 1:1 Skalierung für A4 Landscape Handover Protokolle. Kein verrutschtes Layout, kein Spaltenumbruch beim Drucken.</p>
+                        <img src="print.PNG" alt="Screenshot Print" class="w-full h-auto border border-slate-300 shadow-md rounded-lg" onerror="this.style.display='none'" />
                     </div>
 
-                    <div class="border border-slate-200 bg-white">
-                        <button class="acc-btn w-full text-left px-4 md:px-6 py-4 flex justify-between items-center transition-colors hover:bg-slate-50" onclick="toggleAccordion('acc-4', this)">
-                            <span class="mono text-[11px] md:text-xs font-bold uppercase tracking-widest">> WEB: RESPONSIVE_EXEC</span>
-                            <span class="acc-icon font-mono font-bold text-xl leading-none text-slate-400">+</span>
-                        </button>
-                        <div id="acc-4" class="acc-content px-4 md:px-6 bg-slate-50 border-t border-slate-200">
-                            <p class="text-sm text-slate-600 mb-6 italic">Web-Technologie statt lokaler Software. Läuft ohne Installation flüssig auf jedem iPad, iPhone und Desktop-Rechner im Netz.</p>
-                            <img src="ipad_responsive_test.JPG" alt="Live Test on iPad via Local Network" class="w-full h-auto border border-slate-300 shadow-lg rounded-sm" onerror="this.style.display='none'" />
-                        </div>
+                    <div id="tab-4" class="feature-content w-full hidden animate-fade-in">
+                        <p class="text-base text-slate-600 mb-6 font-medium border-l-2 border-sky-500 pl-4">Web-Technologie statt lokaler Software. Läuft ohne Installation flüssig auf jedem iPad, iPhone und Desktop-Rechner im Netz.</p>
+                        <img src="multi_device_test.JPG" alt="Live Test on Multiple Devices via Local Network" class="w-full h-auto border border-slate-300 shadow-md rounded-lg" onerror="this.style.display='none'" />
                     </div>
-                </div>
 
-                <div class="lg:col-span-5 w-full mt-8 lg:mt-0">
-                    <div class="p-4 md:p-6 bg-slate-50 border border-slate-200 shadow-inner rounded-sm lg:sticky lg:top-24 w-full">
-                        <h4 class="mono text-[10px] font-bold text-slate-900 mb-8 uppercase text-center tracking-widest">Skill-Matrix: Aviation & Tech</h4>
-                        <div class="chart-container">
-                            <canvas id="skillsRadarChart"></canvas>
-                        </div>
-                    </div>
                 </div>
             </div>
+
+            <!-- Radar Chart -->
+            <div class="mt-16 pt-12 border-t border-slate-200">
+                <h4 class="mono text-[10px] font-bold text-slate-900 mb-8 uppercase text-center tracking-widest">Skill-Matrix: Aviation & Tech</h4>
+                <div class="chart-container max-w-2xl mx-auto">
+                    <canvas id="skillsRadarChart"></canvas>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -510,50 +483,65 @@
             bar.classList.add('bg-red-600');
         }
 
-        function toggleAccordion(contentId, btnElement) {
-            const allContents = document.querySelectorAll('.acc-content');
-            const allBtns = document.querySelectorAll('.acc-btn');
-            const targetContent = document.getElementById(contentId);
-            const isOpen = targetContent.classList.contains('open');
-
-            allContents.forEach(content => content.classList.remove('open'));
-            allBtns.forEach(btn => {
-                btn.classList.remove('bg-slate-900', 'text-white');
-                btn.querySelector('.acc-icon').innerText = '+';
-                btn.querySelector('.acc-icon').classList.remove('text-sky-400');
-            });
-
-            if (!isOpen) {
-                targetContent.classList.add('open');
-                btnElement.classList.add('bg-slate-900', 'text-white');
-                btnElement.classList.remove('hover:bg-slate-50');
-                btnElement.querySelector('.acc-icon').innerText = '-';
-                btnElement.querySelector('.acc-icon').classList.add('text-sky-400');
+        // CUSTOM VIDEO PLAY BUTTON
+        function playVideo(container) {
+            const video = document.getElementById('demo-video');
+            const overlay = document.getElementById('play-overlay');
+            if (video.paused) {
+                video.play();
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+                video.setAttribute('controls', '');
             }
         }
 
-        function toggleMedia(contentId, btnElement) {
-            const targetContent = document.getElementById(contentId);
-            const icon = btnElement.querySelector('.media-icon');
-            const isOpen = targetContent.style.maxHeight !== '0px' && targetContent.style.maxHeight !== '';
+        // MEDIA PILL TOGGLE (Video / PDF)
+        function switchMedia(type) {
+            const vidBtn = document.getElementById('btn-vid');
+            const pdfBtn = document.getElementById('btn-pdf');
+            const vidDisp = document.getElementById('display-vid');
+            const pdfDisp = document.getElementById('display-pdf');
+            const videoElement = vidDisp.querySelector('video');
 
-            if (isOpen) {
-                targetContent.style.maxHeight = '0px';
-                targetContent.style.opacity = '0';
-                icon.innerText = '+';
-                icon.classList.remove('text-sky-400', 'text-red-500', 'text-white');
-                icon.classList.add('text-slate-500');
-                
-                const vid = targetContent.querySelector('video');
-                if(vid) vid.pause();
+            if (type === 'vid') {
+                vidBtn.classList.add('bg-slate-900', 'shadow-md', 'text-white');
+                vidBtn.classList.remove('text-slate-500');
+                pdfBtn.classList.remove('bg-slate-900', 'shadow-md', 'text-white');
+                pdfBtn.classList.add('text-slate-500');
+                vidDisp.classList.remove('hidden');
+                pdfDisp.classList.add('hidden');
             } else {
-                targetContent.style.maxHeight = '2500px';
-                targetContent.style.opacity = '1';
-                icon.innerText = '-';
-                icon.classList.remove('text-slate-500');
-                if(contentId === 'media-vid') icon.classList.add('text-sky-400');
-                if(contentId === 'media-pdf') icon.classList.add('text-red-500');
+                pdfBtn.classList.add('bg-slate-900', 'shadow-md', 'text-white');
+                pdfBtn.classList.remove('text-slate-500');
+                vidBtn.classList.remove('bg-slate-900', 'shadow-md', 'text-white');
+                vidBtn.classList.add('text-slate-500');
+                pdfDisp.classList.remove('hidden');
+                vidDisp.classList.add('hidden');
+                if(videoElement) videoElement.pause();
             }
+        }
+
+        // FEATURE TAB LOGIC (Strategy Tabs)
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.feature-content').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('block');
+            });
+
+            document.querySelectorAll('.feature-btn').forEach(el => {
+                el.classList.remove('bg-slate-900', 'text-white', 'shadow-md');
+                el.classList.add('bg-white', 'text-slate-600');
+                el.querySelector('.status-dot').classList.remove('bg-sky-400', 'animate-pulse');
+                el.querySelector('.status-dot').classList.add('bg-slate-300');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('block');
+
+            btnElement.classList.remove('bg-white', 'text-slate-600');
+            btnElement.classList.add('bg-slate-900', 'text-white', 'shadow-md');
+            btnElement.querySelector('.status-dot').classList.remove('bg-slate-300');
+            btnElement.querySelector('.status-dot').classList.add('bg-sky-400', 'animate-pulse');
         }
 
         const isMobile = window.innerWidth < 640;
