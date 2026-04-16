@@ -86,6 +86,44 @@
         ::-webkit-scrollbar-thumb { background: #94a3b8; }
 
         /* =========================================
+           CUSTOM CURSOR — BLUE GLOW DOT
+           Nur auf Desktop (pointer: fine = echte Maus)
+           ========================================= */
+        @media (pointer: fine) {
+            * { cursor: none !important; }
+
+            #cursor-dot {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 10px;
+                height: 10px;
+                background: #38bdf8;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 999999;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.3s ease, transform 0.15s ease;
+                box-shadow:
+                    0 0 6px 2px rgba(56, 189, 248, 0.9),
+                    0 0 18px 6px rgba(56, 189, 248, 0.45),
+                    0 0 36px 12px rgba(14, 165, 233, 0.2);
+                will-change: left, top;
+            }
+
+            #cursor-dot.cursor-hover {
+                transform: translate(-50%, -50%) scale(1.8);
+                background: #7dd3fc;
+                box-shadow:
+                    0 0 8px 3px rgba(56, 189, 248, 1),
+                    0 0 24px 10px rgba(56, 189, 248, 0.55),
+                    0 0 48px 18px rgba(14, 165, 233, 0.25);
+            }
+
+            #cursor-dot.cursor-hidden { opacity: 0; }
+        }
+
+        /* =========================================
            MOBILE RESPONSIVENESS & FLUID TYPOGRAPHY
            ========================================= */
         
@@ -129,6 +167,9 @@
     </style>
 </head>
 <body class="antialiased grid-bg text-slate-900 w-full overflow-x-hidden">
+
+<!-- CUSTOM CURSOR DOT -->
+<div id="cursor-dot" class="cursor-hidden"></div>
 
 <!-- =========================================
          NAVIGATION / MENÜLEISTE OBEN
@@ -598,6 +639,40 @@
             btnElement.querySelector('.status-dot').classList.remove('bg-slate-300');
             btnElement.querySelector('.status-dot').classList.add('bg-sky-400', 'animate-pulse');
         }
+
+        // =========================================
+        // CUSTOM CURSOR — BLUE GLOW DOT
+        // Nur aktiv wenn echte Maus vorhanden (pointer: fine)
+        // =========================================
+        (function() {
+            const dot = document.getElementById('cursor-dot');
+            if (!dot || !window.matchMedia('(pointer: fine)').matches) return;
+
+            let mouseX = -100, mouseY = -100;
+            let rafId;
+
+            function moveDot() {
+                dot.style.left = mouseX + 'px';
+                dot.style.top  = mouseY + 'px';
+                rafId = null;
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.classList.remove('cursor-hidden');
+                if (!rafId) rafId = requestAnimationFrame(moveDot);
+            }, { passive: true });
+
+            document.addEventListener('mouseleave', () => dot.classList.add('cursor-hidden'));
+            document.addEventListener('mouseenter', () => dot.classList.remove('cursor-hidden'));
+
+            // Hover-Effekt auf klickbaren Elementen
+            document.querySelectorAll('a, button, [onclick], input, label, select, textarea').forEach(el => {
+                el.addEventListener('mouseenter', () => dot.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => dot.classList.remove('cursor-hover'));
+            });
+        })();
 
         const isMobile = window.innerWidth < 640;
         const ctxRadar = document.getElementById('skillsRadarChart').getContext('2d');
