@@ -1,44 +1,66 @@
-# TecSavvy-Solutions.github.io
-TecSavvy MRO Ground Plan Visualizer (VIE) - V2.1.8
+# tecsavvy-solutions.github.io
 
-Motto: Start where others stop | Keep it simple & useful
+**Portfolio Website — Richard Schöll**
+Operations AI Architect | Aircraft Maintenance Engineer B1/B2
+*"Start where others stop."*
 
-1. Projektziel
+🌐 **Live:** [tecsavvy-solutions.github.io](https://tecsavvy-solutions.github.io)
 
-Dieses Tool ersetzt die bisherige manuelle und fehleranfällige Planung durch ein dynamisches, webbasiertes Operations-Cockpit. Es wurde von einem B1/B2 Systems Engineer für den harten 24/7 Schichtbetrieb entwickelt, um die Kommunikation zwischen Schichtleitung und Technikern am Flugzeug zu digitalisieren.
+---
 
-2. Das Problem starrer Listen (Status Quo)
+## Inhalt
 
-Die aktuelle Lösung via Excel/Papier stößt in einem dynamischen Umfeld an ihre Grenzen:
+Persönliche Portfolio-Website. Dokumentiert den Weg von 20 Jahren MRO-Erfahrung
+(Austrian Airlines, B1/B2) hin zum Operations AI Architect — mit dem Flagship-Projekt
+**Ground Plan Visualizer (GPV)** als Proof of Transformation.
 
-Keine Flexibilität: Statische Listen visualisieren keine echten Bodenzeiten (Inverted Gantt).
+Zielgruppe: MRO-Management, Aviation-HR und Tech-Recruiter.
 
-Datenverlust bei Delays: Manuelle Notizen verschieben sich nicht automatisch mit dem Flugplan mit.
+**Sektionen:**
+- Identity & Positionierung
+- Philosophie & Arbeitsweise
+- GPV — React + Flask Full-Stack WebApp (Demo Video + PDF Präsentation)
+- Leadership Log (Deputy TL, AOG Recovery)
+- Experience Timeline
 
-Mangelnde Übersicht: Eine intuitive, filterbare Ansicht für die gesamte Flotte und alle LH-Group Airlines (OS, LH, LX, SN, EW etc.) fehlt auf einen Blick.
+---
 
-Teure Eigenentwicklungen: Vermeidung von massiven Kosten durch extern beauftragte App-Entwicklungen durch Nutzung von In-house Domain Expertise.
+## Stack
 
-3. Kernfunktionen (Stand V2.1.8)
+- HTML / CSS / JavaScript (kein Build-Step)
+- Tailwind CSS (CDN)
+- Chart.js (CDN)
+- GitHub Pages — Deploy direkt aus `main` Branch
 
-Inverted Gantt-Logik: Automatische Umwandlung von NetLine-Flugdaten in visuelle Standzeiten.
+---
 
-Fuzzy-Logic ID: Wartungsnotizen sind an das Ereignis {Kennzeichen}_{Datum}_{Flug} gebunden. Informationen wandern bei Delays automatisch mit.
+## GPV — Flagship Projekt
 
-TecSavvy Hybrid-Storage: Wartungsdaten liegen sicher auf dem Server, während persönliche "Sticky Notes" und UI-Filter lokal auf dem Gerät des Nutzers bleiben (Datensparsamkeit).
+| Parameter | Wert |
+|---|---|
+| Frontend | React 19.2 + Vite |
+| Backend | Flask + SQLite |
+| Deployment | 5-Service Docker Compose Stack |
+| Kernlogik | Fuzzy_ID — Wartungsdaten wandern bei Delays automatisch mit |
+| Print | A4 Landscape Handover-Protokolle (`@media print`) |
 
-WYSIWYG High-Precision Print: Ein spezialisiertes 1700px Raster garantiert millimetergenaue Ausdrucke für die Technikertasche.
+---
 
-Fault Management System (FMS): Integrierte Resilienz-Ampel, die bei Netzwerkproblemen im Hangar sofort Feedback gibt.
+## Deployment
 
-4. Strategischer Vorteil
+GitHub Pages baut automatisch aus dem `main` Branch — kein npm, kein Build-Step.
 
-Zero-Cost Rollout: Die 12-Factor Architektur ist hub-agnostisch und sofort für FRA, MUC oder ZRH skalierbar.
+```
+Website\
+├── html Codes\
+│   └── index.html    ← Produktions-Datei
+├── favicon.png / logo.png
+├── dashboard.PNG / print.PNG / multi_device_test.JPG
+├── MRO_Ground_Plan_Visualizer_Presentation_EN_WS.pdf
+└── Ground_Plan_DEMO_Video.mp4
+```
 
-Innovationsbeschleunigung: Übersetzung von operativem Fachwissen in lauffähigen Code durch KI-gestütztes Prompt Engineering.
+---
 
-User-for-User UX: Maximale Akzeptanz an der Front, da das Tool die reale Hardware-Landschaft (iPad/iPhone) berücksichtigt.
-
-Ansprechpartner: Ing. Richard Schöll
-System-ID: SYS_TECSAVVY_V218
-Status: Funktionaler PoC / Bereit für NetLine API Integration
+**Ing. Richard Schöll**
+GitHub: [TecSavvy-Solutions](https://github.com/TecSavvy-Solutions)
